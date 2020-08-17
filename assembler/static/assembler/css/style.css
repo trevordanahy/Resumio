@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    align-content: stretch;
+}
+
+main {
+    width: 60%;
+    flex-grow: 3;
+    background: #9191c5;
+}
+
+aside {
+    width: 40%;
+    flex-grow: 1;
+}

@@ -23,8 +23,10 @@ from assembler import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.homepage),
     path('assembler/', views.assembler),
     path('assembler/getsections/', views.getSections),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

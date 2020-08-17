@@ -8,3 +8,6 @@ def assembler(request):
 
 def getSections(request):
     return JsonResponse(resumeSections)
+
+def homepage(request):
+    return render(request, 'home/home.html')
