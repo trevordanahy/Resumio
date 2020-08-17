@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/assembler.js' %}"></script>
+    <title>Resumio-Assembler</title>
+</head>
+<header>
+    <div class="homeLink"></div>
+    <div class="resumioLink"></div>
+    <div class="assemblerLink"></div>
+    <div class="logo"></div>
+    <div class="aboutLink"></div>
+    <div class="signinSignup"></div>
+</header>
+<body>
+    <main>
+        <form id="assembler" action=""></form>
+    </main>
+    <aside>
+        <button onclick="addSection('contactInfo')">Contact Info</button>
+        <button onclick="addSection('objective')">Objective</button>
+        <button onclick="addSection('skills')">Skills</button>
+        <button onclick="addSection('workHistory')">Work History</button>
+        <button onclick="addSection('references')">References</button>
+        <button onclick="addSection('accomplishments')">Accomplishments</button>
+        <button onclick="addSection('volunteering')">Volunteering</button>
+    </aside>
+</body>
+
+</html>
