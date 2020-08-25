@@ -11,29 +11,29 @@ resumeSections = {
                     "firstname": {
                         "type": "text",
                         "label": "First Name:",
-                        "index": 1
+                        "class": "original"
                     },
                     "lastName": {
                         "type": "text",
                         "label": "Last Name:",
-                        "index": 2
+                        "class": "original"
                     },
                     "phone": {
                         "type": "tel",
                         "pattern": "[0-9]{3}-[0-9]{3}-[0-9]{4}",
                         "placeholder": "123-456-7890",
                         "label": "Phone:",
-                        "index": 3
+                        "class": "original"
                     },
                     "email": {
                         "type": "email",
                         "label": "Email:",
-                        "index": 4
+                        "class": "original"
                     },
                     "personalWebsite": {
                         "type": "url",
                         "label": "Website:",
-                        "index": 5
+                        "class": "original"
                     }
                 }
             }
@@ -50,10 +50,10 @@ resumeSections = {
                 "inputs":{
                     "objective":{
                         "type": "textarea",
-                        "rows": "15",
+                        "rows": "5",
                         "columns": "40",
                         "placeholder": "A brief summary of your professional goals",
-                        "index": 1
+                        "class": "original"
                     }
                 }
             }
@@ -66,13 +66,13 @@ resumeSections = {
         "fieldsets":{
             "main":{
                 "repeatable": True,
-                "repeatableBttnName": "Add Skill",
+                "repeatBttnName": "Add Skill",
                 "fieldsetName": "skillsMain",
                 "inputs": {
                     "skill":{
                         "type": "text",
                         "maxlength": "50",
-                        "index": 1
+                        "class": "original"
                     }
                 }
             }
@@ -92,59 +92,60 @@ resumeSections = {
                     "companyName":{
                         "type": "text",
                         "label": "Company Name:",
-                        "index": 1
+                        "class": "original"
                     },
                     "startDate":{
                         "type": "month",
                         "label": "Start Date(month):",
-                        "index": 2
+                        "class": "original"
                     },
                     "endDate":{
                         "type": "month",
                         "Label": "End Date(month):",
-                        "index": 3
+                        "class": "original"
                     },
                     "companyPhone": {
                         "type": "tel",
                         "pattern": "[0-9]{3}-[0-9]{3}-[0-9]{4}",
                         "placeholder": "123-456-7890",
                         "label": "Company Phone:",
-                        "index": 4
+                        "class": "original"
                     },
                     "companyAddress": {
                         "type": "text",
                         "label": "Address:",
-                        "index": 5
+                        "class": "original"
                     },
                     "companyState": {
                         "type": "text",
                         "maxlength": "2",
                         "size": "2",
                         "label": "State",
-                        "index": 6
+                        "class": "original"
                     },
                     "companyZip": {
                         "type": "number",
                         "maxlength": "5",
                         "label": "Zip Code",
-                        "index": 7
+                        "class": "original"
                     },
                     "jobTitle": {
                         "type": "text",
                         "label": "Job Title:",
-                        "index": 8
+                        "class": "original"
                     }
                 }
             },
             "responsibilities": {
                 "repeatable": True,
-                "repeatableBttnName": "Add Responsibility",
+                "repeatBttnName": "Add Responsibility",
                 "fieldsetName": "responsibilities",
                 "inputs": {
                     "responsibility": {
                         "type": "text",
                         "maxlength": "140",
-                        "index": 1
+                        "placeholder": "Responsibility or duties",
+                        "class": "original"
                     }
                 }
             }
@@ -153,7 +154,8 @@ resumeSections = {
     "references":{
         "type": "section",
         "sectionName": "References",
-        "repeatable": False,
+        "repeatable": True,
+        "repeatBttnName": "Add Reference",
         "fieldsets":{
             "main":{
                 "repeatable": False,
@@ -162,35 +164,35 @@ resumeSections = {
                     "firstname": {
                         "type": "text",
                         "label": "First Name:",
-                        "index": 1
+                        "class": "original"
                     },
                     "lastName": {
                         "type": "text",
                         "label": "Last Name:",
-                        "index": 2
+                        "class": "original"
                     },
                     "phone": {
                         "type": "tel",
                         "pattern": "[0-9]{3}-[0-9]{3}-[0-9]{4}",
                         "placeholder": "123-456-7890",
                         "label": "Phone:",
-                        "index": 3
+                        "class": "original"
                     },
                     "email": {
                         "type": "email",
                         "label": "Email:",
-                        "index": 4
+                        "class": "original"
                     },
                     "relationship": {
                         "type": "text",
                         "label": "Relationship:",
-                        "index": 5
+                        "class": "original"
                     },
                     "knownFor": {
                         "type": "number",
                         "label": "Known For: (years)",
                         "maxlength": "3",
-                        "index": 6
+                        "class": "original"
                     }
                 }
             }
@@ -209,13 +211,13 @@ resumeSections = {
                     "title:": {
                         "type": "text",
                         "label": "Title",
-                        "index": 1
+                        "class": "original"
                     },
                     "description": {
                         "type": "textarea",
                         "rows": "2",
                         "placeholder": "A brief description.",
-                        "index": 2
+                        "class": "original"
                     }
                 }
             }
@@ -234,31 +236,31 @@ resumeSections = {
                     "orgName":{
                         "type": "text",
                         "label": "Organization Name:",
-                        "index": 1
+                        "class": "original"
                     },
                     "phone":{
                         "type": "tel",
                         "pattern": "[0-9]{3}-[0-9]{3}-[0-9]{4}",
                         "placeholder": "123-456-7890",
                         "label": "Phone:",
-                        "index": 2
+                        "class": "original"
                     },
                     "email":{
                         "type": "email",
                         "label": "Org Email:",
-                        "index": 3
+                        "class": "original"
                     }
                 }
             },
             "contributions": {
                 "repeatable": True,
-                "repeatableBttnName": "Add Contribution",
+                "repeatBttnName": "Add Contribution",
                 "fieldsetName":"volunteeringContributions",
                 "inputs": {
                     "contribution": {
                         "type": "text",
                         "placeholder": "contribution",
-                        "index": 1
+                        "class": "original"
                     }
                 }
             }
