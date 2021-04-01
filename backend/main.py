@@ -23,6 +23,7 @@ async def close_db_client():
 
 app.include_router(user_router, tags=["User"], prefix="/user")
 app.include_router(dev_router, tags=["Dev"])
+app.include_router(resumio_router, tags=["Resumio"], prefix="/resumio/drafts")
 
 
 @app.get("/", tags=["Main"])
