@@ -17,8 +17,11 @@ async def all_drafts(requests: Request, user_id=Depends(credentials)):
 
 
 @router.get("/drafts/{draft_id}")
-async def draft_by_id():
-    pass
+async def draft_by_id(request: Request, draft_id, user_id=Depends(credentials)):
+    draft = await request.app.mongodb["drafts"].find_one(
+        {"_id": draft_id, "owner": user_id}
+    )
+    return draft
 
 
 @router.post("/drafts")
@@ -30,8 +33,11 @@ async def create_draft(request: Request, draft: Draft, user_id=Depends(credentia
 
 
 @router.put("/drafts/{draft_id}")
-async def update_draft():
-    pass
+async def update_draft(request: Request, draft_id, user_id=Depends(credentials)):
+    updated_draft = await request.app.mongodb["drafts"].replace_one(
+        {"_id": draft_id, "owner": user_id}, test_doc
+    )
+    return {"msg": "works"}
 
 
 @router.delete("drafts/{draft_id}")
