@@ -8,7 +8,12 @@ router = APIRouter()
 
 @router.get("/drafts")
 async def all_drafts(requests: Request, user_id=Depends(credentials)):
-    pass
+    drafts = []
+    for draft in (
+        await requests.app.mongodb["drafts"].find({"owner": user_id}).to_list(length=20)
+    ):
+        drafts.append(draft)
+    return drafts
 
 
 @router.get("/drafts/{draft_id}")
