@@ -2,20 +2,21 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.encoders import jsonable_encoder
 from apps.users.routes import credentials
 from .models import Draft
+
 router = APIRouter()
 
 
-@router.get("/")
-async def all_drafts():
+@router.get("/drafts")
+async def all_drafts(requests: Request, user_id=Depends(credentials)):
     pass
 
 
-@router.get("/{id}")
+@router.get("/drafts/{draft_id}")
 async def draft_by_id():
     pass
 
 
-@router.post("/")
+@router.post("/drafts")
 async def create_draft(request: Request, draft: Draft, user_id=Depends(credentials)):
     draft.owner = user_id
     json_draft = jsonable_encoder(draft)
@@ -23,11 +24,14 @@ async def create_draft(request: Request, draft: Draft, user_id=Depends(credentia
     return {"msg": "works"}
 
 
-@router.put("/{id}")
+@router.put("/drafts/{draft_id}")
 async def update_draft():
     pass
 
 
-@router.delete("/{id}")
-async def delete_draft():
-    pass
+@router.delete("drafts/{draft_id}")
+async def delete_draft(request: Request, draft_id, user_id=Depends(credentials)):
+    delete_confirmation = await request.app.mongodb["drafts"].delete_one(
+        {"_id": draft_id, "owner": user_id}
+    )
+    return {"msg": "works"}
