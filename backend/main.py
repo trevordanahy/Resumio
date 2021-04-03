@@ -28,9 +28,11 @@ app.include_router(resumio_router, tags=["Resumio"], prefix="/resumio/drafts")
 
 @app.get("/", tags=["Main"])
 def index():
-    return {"hello": "world"}
+    return {"home": "world"}
 
 
 @app.get("/about", tags=["Main"])
 def about_page():
     return {"this page": "will be informative"}
+
+

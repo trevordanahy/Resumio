@@ -23,7 +23,7 @@ credentials.cookie_name = token_cookie_name
 
 @credentials.user_loader
 async def query_user(user):
-    return {"user_id": user}
+    return user
 
 
 # Used to sync expiration for jwt and auth cookie, used in /login route
@@ -83,5 +83,4 @@ async def logout(response: Response):
         response.delete_cookie(key=token_cookie_name)
     except:
         return {"error": "cookie error"}
-
     return {"msg": "success"}

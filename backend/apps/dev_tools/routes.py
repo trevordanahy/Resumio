@@ -29,5 +29,19 @@ async def eat_cookie(request: Request):
 
 
 @router.get("/protected_route/")
-async def tester(user=Depends(credentials)):
-    return user
+async def tester(user_id=Depends(credentials)):
+    return {"user_id": user}
+
+
+@router.delete("/all_drafts/")
+async def delete_all_drafts(request: Request):
+    deleted = await request.app.mongodb["drafts"].delete_many({})
+    return {"msg": "successs"}
+
+
+@router.get("/all_drafts/")
+async def get_all_drafts(request: Request):
+    drafts = []
+    for doc in await request.app.mongodb["drafts"].find().to_list(length=50):
+        drafts.append(doc)
+    return drafts

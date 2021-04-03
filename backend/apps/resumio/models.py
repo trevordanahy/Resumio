@@ -1,5 +1,5 @@
 from typing import List, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, PrivateAttr, Field
 import uuid
 
 # Sub Models used to
@@ -50,11 +50,11 @@ class Profile(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "network": "twitter",
                 "username": "bttz",
                 "url": "www.twitter.com"
-            }
+            }]
         }
 
 
@@ -71,12 +71,12 @@ class Basics(BaseModel):
         schema_extra = {
             "example": {
                 "contact": Contact.Config.schema_extra["example"],
-                "label": "Mathmatician",
+                "jobTitle": "Mathmatician",
                 "img": "https://imgur.com/gallery/bE9Zp8D",
                 "url": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss",
                 "summary": "A mathmatician with strong statistical skills looking for acuary jobs",
                 "location": Location.Config.schema_extra["example"],
-                "profiles": [Profile.Config.schema_extra["example"]]
+                "profiles": Profile.Config.schema_extra["example"]
             }
         }
 
@@ -88,13 +88,13 @@ class Work(BaseModel):
     position: str
     url: str
     startDate: str
-    EndDate: str
+    endDate: str
     summary: str
-    highlights: list
+    highlights: List[str]
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "name": "Strictland Propane",
                 "location": Location.Config.schema_extra["example"],
                 "description": "Propane and Propane Accessories",
@@ -107,8 +107,7 @@ class Work(BaseModel):
                     "Top seller of vaugner charking",
                     "Received the blue flame from the propane association"
                 ]
-
-            }
+            }]
         }
 
 
@@ -123,7 +122,7 @@ class Volunteer(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "organization": "Engineers without Borders",
                 "position": "Civil Engineer",
                 "url": "https://www.ewb-usa.org/",
@@ -134,8 +133,7 @@ class Volunteer(BaseModel):
                     "Built water pump with local supplies",
                     "Managed team overseas"
                 ]
-
-            }
+            }]
         }
 
 
@@ -151,7 +149,7 @@ class Education(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "institution": "Underwater Basketweaver State",
                 "url": "www.ubs.edu",
                 "area": "Underwater Basket Weaving",
@@ -163,7 +161,7 @@ class Education(BaseModel):
                     "Diving 101",
                     "Weaving 304"
                 ]
-            }
+            }]
         }
 
 
@@ -175,12 +173,12 @@ class Award(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "title": "Nobel Prize",
                 "date": "2014-12-01",
                 "awarder": "Nobel Institute",
                 "summary": "Ground breaking reasearch changed the world."
-            }
+            }]
         }
 
 
@@ -193,13 +191,13 @@ class Publication(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "name": "Effects of Fasting on Metabolism",
                 "publisher": "Nature",
                 "releaseDate": "2014-12-01",
                 "url": "www.nature.com",
                 "summary": "Double blind 10 year study of the effects of fasting."
-            }
+            }]
         }
 
 
@@ -210,15 +208,15 @@ class Skill(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "name": "Web Development",
-                "mastery": "Intermediate",
+                "level": "Intermediate",
                 "keywords": [
                     "Javascript",
                     "Django",
                     "Node.js"
                 ]
-            }
+            }]
         }
 
 
@@ -228,10 +226,10 @@ class Language(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "language": "Spanish",
                 "fluency": "Conversational"
-            }
+            }]
         }
 
 
@@ -241,27 +239,26 @@ class Interest(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "name": "Snowboarding",
                 "keywords": [
                     "shredding",
                     "gnar pow"
                 ]
-            }
+            }]
         }
 
 
 class Reference(BaseModel):
-    name: str
-    reference: str
     contact: Optional[Contact]
+    reference: str
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "contact": Contact.Config.schema_extra["example"],
                 "reference": "They draw the best graphs"
-            }
+            }]
         }
 
 
@@ -279,10 +276,10 @@ class Project(BaseModel):
 
     class Config:
         schema_extra = {
-            "example": {
+            "example": [{
                 "name": "Squirel Obstacle Course",
                 "description": "An obstacle course for squirrels with treat at the end.",
-                "hightlights": [
+                "highlights": [
                     "Over 60 million youtube views",
                     "2 million likes"
                 ],
@@ -296,8 +293,8 @@ class Project(BaseModel):
                 "url": "https://www.youtube.com/watch?v=hFZFjoX2cGg",
                 "roles": ["project lead", "cameraman"],
                 "entity": "Mark Rober Labs",
-                "type": "Obstacle Course"
-            }
+                "project_type": "Obstacle Course"
+            }]
         }
 
 
@@ -314,6 +311,22 @@ class Resume(BaseModel):
     references: Optional[List[Reference]]
     projects: Optional[List[Project]]
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "basics": Basics.Config.schema_extra["example"],
+                "work": Work.Config.schema_extra["example"],
+                "volunteer": Volunteer.Config.schema_extra["example"],
+                "education": Education.Config.schema_extra["example"],
+                "awards": Award.Config.schema_extra["example"],
+                "publications": Publication.Config.schema_extra["example"],
+                "skills": Skill.Config.schema_extra["example"],
+                "languages": Language.Config.schema_extra["example"],
+                "references": Reference.Config.schema_extra["example"],
+                "projects": Project.Config.schema_extra["example"],
+            }
+        }
+
 
 # Models to be exported for use in the app
 class Draft(BaseModel):
@@ -322,3 +335,14 @@ class Draft(BaseModel):
     resume: Resume
     created: str
     modified: str
+    owner: Optional[str]
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "title": "Aerospace Draft",
+                "resume": Resume.Config.schema_extra["example"],
+                "created": "2019-12-01",
+                "modified": "2021-01-01"
+            }
+        }
