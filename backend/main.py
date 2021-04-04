@@ -23,7 +23,7 @@ async def close_db_client():
 
 app.include_router(user_router, tags=["User"], prefix="/user")
 app.include_router(dev_router, tags=["Dev"])
-app.include_router(resumio_router, tags=["Resumio"], prefix="/resumio/drafts")
+app.include_router(resumio_router, tags=["Resumio"], prefix="/app")
 
 
 @app.get("/", tags=["Main"])
@@ -34,5 +34,3 @@ def index():
 @app.get("/about", tags=["Main"])
 def about_page():
     return {"this page": "will be informative"}
-
-
