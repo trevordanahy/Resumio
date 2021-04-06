@@ -1,13 +1,21 @@
 from fastapi import FastAPI
 from motor.motor_asyncio import AsyncIOMotorClient
+from urllib.parse import quote
 from apps.users.routes import router as user_router
 from apps.dev_tools.routes import router as dev_router
 from apps.resumio.routes import router as resumio_router
+import os
 
 
 app = FastAPI()
+app.include_router(user_router, tags=["User"], prefix="/user")
+app.include_router(dev_router, tags=["Dev"])
+app.include_router(resumio_router, tags=["Resumio"], prefix="/app")
 
-mongo_uri = "mongodb://mongoadmin:devpassword@localhost:27017"
+
+db_user = quote(os.environ.get("DB_USER"))
+db_pass = quote(os.environ.get("DB_PASS"))
+mongo_uri = f"mongodb://{db_user}:{db_pass}@localhost:27017"
 
 
 @app.on_event("startup")
@@ -21,9 +29,7 @@ async def close_db_client():
     app.mongodb_client.close()
 
 
-app.include_router(user_router, tags=["User"], prefix="/user")
-app.include_router(dev_router, tags=["Dev"])
-app.include_router(resumio_router, tags=["Resumio"], prefix="/app")
+
 
 
 @app.get("/", tags=["Main"])
