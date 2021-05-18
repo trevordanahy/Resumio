@@ -1,7 +1,7 @@
 # ALL ROUTES BELOW ARE FOR DEVELOPMENT ONLY
 # THESE FUNCTIONS WILL NOT BE IN FINAL RELEASE
 
-# fuction to make clearing test users easier
+# function to make clearing test users easier
 from fastapi import APIRouter, Request, Depends
 from apps.users.routes import credentials, token_cookie_name
 
