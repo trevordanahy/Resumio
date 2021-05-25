@@ -5,6 +5,7 @@ import { StyledHeader, PageTitle } from './components/style/HeaderStyles'
 import UserBox from './components/control/UserBox'
 import { StyledMain } from './components/style/MainStyles'
 import { StyledFooter } from './components/style/FooterStyles'
+import AuthStateProvider from './context/AuthStateProvider'
 
 
 function App() {
@@ -13,11 +14,13 @@ function App() {
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <StyledHeader>
-          <PageTitle>Test</PageTitle>
-          <UserBox />
-        </StyledHeader>
-        <StyledMain />
+        <AuthStateProvider>
+          <StyledHeader>
+            <PageTitle>Test</PageTitle>
+            <UserBox />
+          </StyledHeader>
+          <StyledMain />
+        </AuthStateProvider>
         <StyledFooter />
       </ThemeProvider>
     </>
