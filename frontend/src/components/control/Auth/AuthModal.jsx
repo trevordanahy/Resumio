@@ -24,8 +24,8 @@ function AuthModal({isOpen, setIsOpen}) {
     <Background onClick={closeModal} ref={backgroundRef} >
       <Modal>
         <FormSelect>
-          <FormBttn onClick={() => setIsLoginForm(true)} />
-          <FormBttn onClick={() => setIsLoginForm(false)} />
+          <FormBttn onClick={() => setIsLoginForm(true)}>Login</FormBttn>
+          <FormBttn onClick={() => setIsLoginForm(false)}>Register</FormBttn>
         </FormSelect>
         <Form>
           {isLoginForm 

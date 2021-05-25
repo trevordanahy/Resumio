@@ -16,7 +16,7 @@ function App() {
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <AuthStateProvider>
           <StyledHeader>
-            <PageTitle>Test</PageTitle>
+            <PageTitle>Resumio</PageTitle>
             <UserBox />
           </StyledHeader>
           <StyledMain />
