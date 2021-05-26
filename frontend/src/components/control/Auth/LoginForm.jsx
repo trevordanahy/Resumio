@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import { AuthBttn, AuthInput, AuthLabel, ErrorMsg } from '../../style/AuthStyles/AuthFormStyles'
+import {login } from '../../../adapters'
+import { AuthBttn, AuthInput, 
+  AuthLabel, ErrorMsg } from '../../style/AuthStyles/AuthFormStyles'
 
 export default function LoginForm() {
   const [error, setError] = useState('')
