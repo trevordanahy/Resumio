@@ -61,10 +61,11 @@ export default function RegistrationForm({switchToLogin}) {
       <AuthLabel htmlFor="username">Username</AuthLabel>
       <AuthInput id="username" onChange={usernameHandler} value={regData.username}/>
       <AuthLabel htmlFor="password">Password</AuthLabel>
-      <AuthInput id="password" onChange={passwordHandler} value={regData.password}/>
+      <AuthInput type="password" id="password" onChange={passwordHandler} value={regData.password}/>
       <AuthLabel htmlFor="confirmPassword">Confirm Password</AuthLabel>
       <AuthInput 
         id="confirmPassword" 
+        type="password"
         onChange={confirmPasswordHandler} 
         value={regData.confirmPassword}
       /> 
