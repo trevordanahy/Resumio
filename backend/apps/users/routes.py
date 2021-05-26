@@ -5,12 +5,13 @@ from fastapi_login import LoginManager
 from datetime import timedelta
 from passlib.hash import bcrypt
 import jwt
-from .models import User
+from .models import User, UserIn
 
 router = APIRouter()
 
 jwt_secret = "167e849c6b79422c6a29bad9bde29f4eb20dfa4004a56483"
 token_cookie_name = "access-token"
+token_expire_time = 5
 
 credentials = LoginManager(
     secret=jwt_secret, tokenUrl="/login/", use_cookie=True, use_header=False
@@ -38,7 +39,23 @@ async def auth_user(email: str, password: str, request: Request):
         return False
     if not bcrypt.verify(password, user["password"]):
         return False
-    return user["_id"]
+    return user
+
+
+def create_token(user, expire_time):
+    print(user)
+    print(expire_time)
+    try:
+        expiration = set_duration_days(expire_time)
+        payload = {"sub": user["_id"], "username": user["username"]}
+        token_value = credentials.create_access_token(
+            data=payload, expires=expiration["jwt"]
+        )
+        token = {"value": token_value, "expiration": expiration["cookie"]}
+    except:
+        raise HTTPException(status_code=400, detail="Unable to create auth token")
+    else:
+        return token
 
 
 # User Routes
@@ -59,25 +76,25 @@ async def create_user(request: Request, user: User):
 
 
 @router.post("/login/")
-async def login(email: str, password: str, request: Request, response: Response):
-    user_id = await auth_user(email, password, request)
-    expiration = set_duration_days(5)
+async def login(login: UserIn, request: Request, response: Response):
+    user = await auth_user(login.email, login.password, request)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
 
-    payload = {"sub": user_id}
-    token = credentials.create_access_token(data=payload, expires=expiration["jwt"])
+    token = create_token(user, token_expire_time)
 
     try:
         response.set_cookie(
             key=token_cookie_name,
-            value=token,
+            value=token["value"],
             httponly=True,
-            max_age=(expiration["cookie"]),
+            max_age=(token["expiration"]),
         )
     except:
         raise HTTPException(
             status_code=400, detail="Unable to set authorization cookie"
         )
-    return {"msg": "success"}
+    return {"detail": "Logged In", "username": user["username"]}
 
 
 @router.get("/logout")
