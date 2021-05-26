@@ -12,9 +12,7 @@ export const UserBttn = styled.button`
   margin: 3px 3vw 10px 3px;
   padding: 2px;
   background: ${props => props.theme.lightShade};
-  
 `
-
 export const DisplayedUser = styled.h2`
   color: ${props => props.theme.lightShade};
   margin: 3px 3vw 3px 3px;

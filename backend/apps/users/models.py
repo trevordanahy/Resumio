@@ -14,6 +14,16 @@ class User(BaseModel):
             "example": {
                 "email": "fake@email.com",
                 "username": "fakery",
-                "password": "supersecure"
+                "password": "supersecure",
             }
+        }
+
+
+class UserIn(BaseModel):
+    email: str
+    password: str
+
+    class Config:
+        schema_extra = {
+            "example": {"email": "fake@email.com", "password": "supersecure"}
         }
