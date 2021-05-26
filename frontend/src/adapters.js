@@ -14,3 +14,13 @@ export const login = async (postData) => {
     }
   }
 }
+
+export const logout = async () => {
+  const logoutUrl = url + '/user/logout'
+  try {
+    const result = await axios.get(logoutUrl, { withCredentials: true })
+    return { status: result.status, data: result.data.detail }
+  } catch (err) {
+    console.log(err.message)
+  }
+}

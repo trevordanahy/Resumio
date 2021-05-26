@@ -103,4 +103,4 @@ async def logout(response: Response):
         response.delete_cookie(key=token_cookie_name)
     except:
         raise HTTPException(status_code=400, detail="Error deleting cookie")
-    return {"msg": "success"}
+    return {"detail": "Logged Out"}

@@ -6,7 +6,7 @@ import { AuthBttn, AuthInput,
   AuthLabel, ErrorMsg } from '../../style/AuthStyles/AuthFormStyles'
 
 export default function LoginForm() {
-  const {state,dispatch} = useContext(AuthContext)
+  const {dispatch} = useContext(AuthContext)
   const [error, setError] = useState('')
   const [loginData, setLoginData] = useState({
     email: '',
@@ -14,9 +14,7 @@ export default function LoginForm() {
   })
 
   async function submitHandler(){
-    console.log(state)
     const result = await login(loginData)
-    console.log(result)
     if (result.status === 200){
       dispatch({
         type: AUTH_LOGIN,
@@ -25,7 +23,6 @@ export default function LoginForm() {
     }else {
       setError(result.data)
     }
-    console.log(state.user)
   }
 
   const emailHandler = (e) => {

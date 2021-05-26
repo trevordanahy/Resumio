@@ -2,16 +2,27 @@ import React, {useContext, useState} from 'react'
 import AuthContext from '../../context/auth-context'
 import { DisplayedUser, UserBoxContainer, UserBttn } from '../style/UserBoxStyles'
 import AuthModal from './Auth/AuthModal'
+import {logout} from '../../adapters'
+import { AUTH_LOGOUT } from '../../context/auth-actions'
 
 export default function UserBox() {
   const [isOpen, setIsOpen] = useState(false)
-  const {state} = useContext(AuthContext)
+  const {state, dispatch} = useContext(AuthContext)
 
+  const logoutHandler = async () => {
+    const result = await logout()
+    if (result.status === 200){
+      dispatch({
+        type: AUTH_LOGOUT,
+      })
+    }
+  }
+  
   if (state.isAuthenticated){
     return (
       <UserBoxContainer>
         <DisplayedUser>{state.user}</DisplayedUser>
-        <UserBttn>Logout</UserBttn>
+        <UserBttn onClick={logoutHandler}>Logout</UserBttn>
       </UserBoxContainer>
     )
   }
