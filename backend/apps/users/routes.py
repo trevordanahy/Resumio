@@ -13,10 +13,8 @@ jwt_secret = "167e849c6b79422c6a29bad9bde29f4eb20dfa4004a56483"
 token_cookie_name = "access-token"
 
 credentials = LoginManager(
-    secret=jwt_secret,
-    tokenUrl="/login/",
-    use_cookie=True,
-    use_header=False)
+    secret=jwt_secret, tokenUrl="/login/", use_cookie=True, use_header=False
+)
 
 credentials.cookie_name = token_cookie_name
 
@@ -49,7 +47,8 @@ async def create_user(request: Request, user: User):
     existing = await request.app.mongodb["users"].find_one({"email": user.email})
     if existing:
         raise HTTPException(
-            status_code=401, detail="User already exists, please sign in")
+            status_code=401, detail="User already exists, please sign in"
+        )
 
     hashed_pass = bcrypt.hash(user.password)
     user.password = hashed_pass
@@ -65,15 +64,19 @@ async def login(email: str, password: str, request: Request, response: Response)
     expiration = set_duration_days(5)
 
     payload = {"sub": user_id}
-    token = credentials.create_access_token(
-        data=payload, expires=expiration["jwt"])
+    token = credentials.create_access_token(data=payload, expires=expiration["jwt"])
 
     try:
         response.set_cookie(
-            key=token_cookie_name, value=token, httponly=True, max_age=(expiration["cookie"])
+            key=token_cookie_name,
+            value=token,
+            httponly=True,
+            max_age=(expiration["cookie"]),
         )
     except:
-        return{"cookie error": "fuck"}
+        raise HTTPException(
+            status_code=400, detail="Unable to set authorization cookie"
+        )
     return {"msg": "success"}
 
 
@@ -82,5 +85,5 @@ async def logout(response: Response):
     try:
         response.delete_cookie(key=token_cookie_name)
     except:
-        return {"error": "cookie error"}
+        raise HTTPException(status_code=400, detail="Error deleting cookie")
     return {"msg": "success"}
