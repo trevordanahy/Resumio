@@ -24,3 +24,13 @@ export const logout = async () => {
     console.log(err.message)
   }
 }
+
+export const register = async (postData) => {
+  const registerUrl = url + '/user/register'
+  try {
+    const result = await axios.post(registerUrl, postData, { withCredentials: true })
+    return { status: result.status, data: result.data.detail }
+  } catch (err) {
+    return { status: err.response.status, data: err.response.data.detail }
+  }
+}
