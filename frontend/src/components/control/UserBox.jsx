@@ -4,8 +4,10 @@ import { DisplayedUser, UserBoxContainer, UserBttn } from '../style/UserBoxStyle
 import AuthModal from './Auth/AuthModal'
 import {logout} from '../../adapters'
 import { AUTH_LOGOUT } from '../../context/auth-actions'
+import { useHistory } from 'react-router'
 
 export default function UserBox() {
+  const history = useHistory()
   const [isOpen, setIsOpen] = useState(false)
   const {state, dispatch} = useContext(AuthContext)
 
@@ -15,6 +17,7 @@ export default function UserBox() {
       dispatch({
         type: AUTH_LOGOUT,
       })
+      history.push("/")
     }
   }
   

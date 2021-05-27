@@ -8,4 +8,8 @@ export const StyledMain = styled.main`
   flex-flow: row wrap;
 `
 
-export const FakeDiv = styled.div``
+export const TempDiv = styled.div`
+  color: ${props => props.theme.secondaryShade};
+  height: auto;
+  background: 'navy';
+`

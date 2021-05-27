@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import {login } from '../../../adapters'
 import { AUTH_LOGIN } from '../../../context/auth-actions'
 import AuthContext from '../../../context/auth-context'
@@ -6,6 +7,7 @@ import { AuthBttn, AuthInput,
   AuthLabel, ErrorMsg } from '../../style/AuthStyles/AuthFormStyles'
 
 export default function LoginForm() {
+  const history = useHistory()
   const {dispatch} = useContext(AuthContext)
   const [error, setError] = useState('')
   const [loginData, setLoginData] = useState({
@@ -20,6 +22,7 @@ export default function LoginForm() {
         type: AUTH_LOGIN,
         payload: result.data.username
       })
+      history.push('/editor')
     }else {
       setError(result.data)
     }
