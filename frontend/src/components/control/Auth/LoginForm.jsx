@@ -22,7 +22,7 @@ export default function LoginForm() {
         type: AUTH_LOGIN,
         payload: result.data.username
       })
-      history.push('/editor')
+      history.push('/app')
     }else {
       setError(result.data)
     }

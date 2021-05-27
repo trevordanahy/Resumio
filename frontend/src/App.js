@@ -8,7 +8,8 @@ import { StyledMain } from './components/style/MainStyles'
 import { StyledFooter } from './components/style/FooterStyles'
 import AuthStateProvider from './context/AuthStateProvider'
 import Homepage from './components/control/Homepage'
-import Editor from './components/control/Editor'
+import Editor from './components/control/ResumioApp'
+import ResumioApp from './components/control/ResumioApp'
 
 
 function App() {
@@ -27,8 +28,8 @@ function App() {
               <Route exact path="/">
                 <Homepage />
               </Route>
-              <Route exact path="/editor">
-                <Editor />
+              <Route exact path="/app">
+                <ResumioApp />
               </Route>
             </StyledMain>
           </Switch>
