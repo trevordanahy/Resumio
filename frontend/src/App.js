@@ -8,6 +8,7 @@ import Main from './components/control/Main'
 import { StyledFooter } from './components/style/FooterStyles'
 import AuthContext from './context/auth-context'
 import { AUTH_LOGIN } from './context/auth-actions'
+import NavBar from './components/control/NavBar'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <Header />
+        <NavBar />
         <Main />
         <StyledFooter />
       </ThemeProvider>
