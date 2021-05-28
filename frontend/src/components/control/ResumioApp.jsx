@@ -6,7 +6,6 @@ import AuthContext from '../../context/auth-context'
 
 export default function ResumioApp() {
   const {state} = useContext(AuthContext)
-  console.log('res app')
 
   if (!state.isAuthenticated){
     return (<Redirect to="/"/>)
