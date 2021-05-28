@@ -43,8 +43,6 @@ async def auth_user(email: str, password: str, request: Request):
 
 
 def create_token(user, expire_time):
-    print(user)
-    print(expire_time)
     try:
         expiration = set_duration_days(expire_time)
         payload = {"sub": user["_id"], "username": user["username"]}
@@ -104,3 +102,14 @@ async def logout(response: Response):
     except:
         raise HTTPException(status_code=400, detail="Error deleting cookie")
     return {"detail": "Logged Out"}
+
+
+@router.get("/me", status_code=200)
+async def user(request: Request, user=Depends(credentials)):
+    try:
+        me = await request.app.mongodb["users"].find_one({"_id": user})
+        username = me["username"]
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+    else:
+        return {"username": username}

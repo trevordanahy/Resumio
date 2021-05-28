@@ -34,3 +34,17 @@ export const register = async (postData) => {
     return { status: err.response.status, data: err.response.data.detail }
   }
 }
+
+export const getCurrentUser = async () => {
+  const meUrl = url + '/user/me'
+  try {
+    const res = await axios.get(meUrl, { withCredentials: true })
+    return res.data.username
+  } catch (err) {
+    if (err.response.status === 401) {
+      return ''
+    } else {
+      console.log(err.message)
+    }
+  }
+}
