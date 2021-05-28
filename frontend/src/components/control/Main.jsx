@@ -4,6 +4,7 @@ import { StyledMain } from '../style/MainStyles'
 import Homepage from './Homepage'
 import ResumioApp from './ResumioApp'
 import About from './About'
+import AppNav from './AppNav/AppNav'
 
 
 export default function Main() {
@@ -13,7 +14,7 @@ export default function Main() {
         <Route exact path='/'>
           <Homepage />
         </Route>
-        <Route exact path='/app'>
+        <Route  path='/app'>
           <ResumioApp  />
         </Route>
         <Route path='/about'>

@@ -5,7 +5,8 @@ export const StyledMain = styled.main`
   min-height: 120vh;
   background: ${props => props.theme.mainShade};
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
+  align-items: center;
 `
 
 export const TempDiv = styled.div`
