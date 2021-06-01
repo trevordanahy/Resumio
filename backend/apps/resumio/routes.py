@@ -40,7 +40,7 @@ async def update_draft(request: Request, draft_id, user_id=Depends(credentials))
     return {"msg": "works"}
 
 
-@router.delete("drafts/{draft_id}")
+@router.delete("/drafts/{draft_id}")
 async def delete_draft(request: Request, draft_id, user_id=Depends(credentials)):
     delete_confirmation = await request.app.mongodb["drafts"].delete_one(
         {"_id": draft_id, "owner": user_id}
