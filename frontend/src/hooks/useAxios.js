@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'http://localhost:8000'
 /* Hook used to fetch data.  Method can be attached in the request params. */
 
 const useAxios = (requestParams) => {
-  const [res, setRes] = useState(undefined)
+  const [res, setRes] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
 
