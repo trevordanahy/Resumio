@@ -1,39 +1,63 @@
 import React, {useContext, useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {login } from '../../../adapters'
 import { AUTH_LOGIN } from '../../../context/auth-actions'
 import AuthContext from '../../../context/auth-context'
 import { AuthBttn, AuthInput, 
   AuthLabel, ErrorMsg } from '../../style/AuthStyles/AuthFormStyles'
+import { LOADING, LOGIN } from './authForm-actions'
 
-export default function LoginForm() {
+export default function LoginForm({formDispatch, error}) {
+  const loginUrl = '/user/login'
   const history = useHistory()
   const {dispatch} = useContext(AuthContext)
-  const [error, setError] = useState('')
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
   })
-
-  async function submitHandler(){
-    const result = await login(loginData)
-    if (result.status === 200){
-      dispatch({
-        type: AUTH_LOGIN,
-        payload: result.data.username
-      })
-      history.push('/app')
-    }else {
-      setError(result.data)
-    }
-  }
-
+  
+    
   const emailHandler = (e) => {
     setLoginData({...loginData, email: e.target.value})
   }
 
   const passwordHandler = (e) => {
     setLoginData({...loginData, password: e.target.value})
+  }
+
+  /* loginSuccess and loginError will be passed to the loading panel which will to
+  be called based on the post response.
+  */ 
+  const loginSuccess = (res) => {
+    dispatch({
+      type: AUTH_LOGIN,
+      payload: res.username
+    })
+    history.push('/app')
+  }
+
+  const loginError = (error) => {
+    if (error.status === 401){
+      formDispatch({
+        type: LOGIN,
+        formType: 'Login',
+        error: error.data.detail
+      })
+    }
+    //later revision will forward to general error component
+    console.log(error.data.detail)
+  }
+
+  
+  const submitHandler = (e) =>{
+    e.preventDefault()
+
+    formDispatch({
+      type: LOADING,
+      requestUrl: loginUrl,
+      requestBody: loginData,
+      successCallback: loginSuccess,
+      errorCallback: loginError
+    })
   }
 
   return (
@@ -46,7 +70,7 @@ export default function LoginForm() {
         onChange={passwordHandler} 
         value={loginData.password}/>
       <ErrorMsg>{error}</ErrorMsg>
-      <AuthBttn onClick={submitHandler}>Login</AuthBttn>
+      <AuthBttn type='submit' onClick={submitHandler}>Login</AuthBttn>
     </>
   )
 }

@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, Request, Response, Body, HTTPException
 from fastapi.encoders import jsonable_encoder
-from fastapi.responses import RedirectResponse
 from fastapi_login import LoginManager
 from datetime import timedelta
 from passlib.hash import bcrypt
@@ -73,7 +72,7 @@ async def create_user(request: Request, user: User):
     return {"msg": "success"}
 
 
-@router.post("/login")
+@router.post("/login", status_code=200)
 async def login(login: UserIn, request: Request, response: Response):
     user = await auth_user(login.email, login.password, request)
     if not user:

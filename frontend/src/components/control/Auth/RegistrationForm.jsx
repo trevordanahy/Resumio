@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { AuthLabel, AuthInput, 
   ErrorMsg, AuthBttn } from '../../style/AuthStyles/AuthFormStyles'
-import {register} from '../../../adapters'
+import { LOADING, REGISTER } from './authForm-actions'
 
-export default function RegistrationForm({switchToLogin}) {
-  const [error, setError] = useState('')
+export default function RegistrationForm({formDispatch, error}) {
+  const registrationUrl = '/user/register'
   const [regData, setRegData] = useState({
     email: '',
     username: '',
@@ -37,20 +37,20 @@ export default function RegistrationForm({switchToLogin}) {
 
   const submitHandler = async () => {
     if (!passwordCheck()){
-      setError('Passwords do not match')
-      return
+      formDispatch({
+        type: REGISTER,
+        error: 'Passwords do not match.'
+      })
     }
+
     // create object without confirm password key
     const {confirmPassword, ...postData} = regData 
-    console.log(postData)
-    const result = await register(postData)
-    if (result.status === 201){
-      switchToLogin()
-    }else if (result.status === 409){
-      setError(result.data)
-    }else {
-      console.log(result.data)
-    }
+
+    formDispatch({
+      type: LOADING,
+      requestUrl: registrationUrl,
+      requestBody: postData,
+    })
   }
 
   return (

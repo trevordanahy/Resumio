@@ -10,29 +10,28 @@ const useAxios = (requestParams) => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const source = axios.CancelToken.source()
+  const source = axios.CancelToken.source()
 
-    const fetchData = async () => {
-      try {
-        const result = await axios.request({ ...requestParams, cancelToken: source.token })
-        setRes(result.data)
-      } catch (err) {
-        if (axios.isCancel(err)) {
-          return
-        }
-        setError(err)
-      } finally {
-        setLoading(false)
+  const fetchData = async () => {
+    try {
+      const result = await axios.request({ ...requestParams, cancelToken: source.token })
+      setRes(result.data)
+    } catch (err) {
+      if (axios.isCancel(err)) {
+        return
       }
+      setError(err.response)
+    } finally {
+      setLoading(false)
     }
+  }
 
+  useEffect(() => {
     fetchData()
-
     return () => source.cancel()
   }, [])
 
-  return { loading, res, error }
+  return { res, error }
 }
 
 export default useAxios

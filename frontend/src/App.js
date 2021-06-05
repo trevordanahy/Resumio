@@ -16,7 +16,7 @@ function App() {
   const { dispatch } = useContext(AuthContext)
   const [isDark, setIsDark] = useState(true)
 
-  const { loading, res, error } = useAxios(
+  const { res } = useAxios(
     {
       method: 'get',
       url: '/user/me',
@@ -34,7 +34,7 @@ function App() {
       })
       history.push('/app')
     }
-  }, [res])
+  }, [res, dispatch, history])
 
   return (
     <>
