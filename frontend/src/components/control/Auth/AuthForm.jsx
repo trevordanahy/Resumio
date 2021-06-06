@@ -17,11 +17,11 @@ function AuthForm({form, formDispatch}) {
   if (form.formType ==='Loading'){
     return (
     <LoadingPanel 
+      method={'post'}
       requestUrl={form.requestUrl}
       requestBody={form.requestBody} 
       successCallback={form.successCallback}
       errorCallback={form.errorCallback}
-      formDispatch={formDispatch}
     />
     )}
 

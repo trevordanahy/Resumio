@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
 import useAxios from '../../hooks/useAxios'
 
-function LoadingPanel({requestUrl,requestBody, successCallback, errorCallback}) {
+function LoadingPanel({method, requestUrl,requestBody, successCallback, errorCallback}) {
   const {res, error} = useAxios({
     url: requestUrl,
-    method: 'post',
+    method: method ,
     data: requestBody,
     withCredentials: true
   })

@@ -33,6 +33,7 @@ export default function RegistrationForm({formDispatch, error}) {
       formType: 'Register',
       error: error.data.detail
     })
+    //Will be replace by custom error page. 
     console.log(error.data.detail)
   }
 

@@ -92,7 +92,7 @@ async def login(login: UserIn, request: Request, response: Response):
     return {"detail": "Logged In", "username": user["username"]}
 
 
-@router.get("/logout")
+@router.get("/logout", status_code=200)
 async def logout(response: Response):
     try:
         response.delete_cookie(key=token_cookie_name)
