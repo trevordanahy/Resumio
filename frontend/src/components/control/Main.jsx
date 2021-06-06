@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { StyledMain } from '../style/MainStyles'
 import Homepage from './Homepage'
 import ResumioApp from './ResumioApp'
 import About from './About'
-import AppNav from './AppNav/AppNav'
 
 
 export default function Main() {

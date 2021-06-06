@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, Request, Response, Body, HTTPException
 from fastapi.encoders import jsonable_encoder
-from fastapi.responses import RedirectResponse
 from fastapi_login import LoginManager
 from datetime import timedelta
 from passlib.hash import bcrypt
@@ -61,19 +60,17 @@ def create_token(user, expire_time):
 async def create_user(request: Request, user: User):
     existing = await request.app.mongodb["users"].find_one({"email": user.email})
     if existing:
-        raise HTTPException(
-            status_code=401, detail="User already exists, please sign in"
-        )
+        raise HTTPException(status_code=401, detail="User already exists, please login")
 
     hashed_pass = bcrypt.hash(user.password)
     user.password = hashed_pass
 
     user = jsonable_encoder(user)
     new_user = await request.app.mongodb["users"].insert_one(user)
-    return {"msg": "success"}
+    return {"detail": "User Registered"}
 
 
-@router.post("/login")
+@router.post("/login", status_code=200)
 async def login(login: UserIn, request: Request, response: Response):
     user = await auth_user(login.email, login.password, request)
     if not user:
@@ -95,7 +92,7 @@ async def login(login: UserIn, request: Request, response: Response):
     return {"detail": "Logged In", "username": user["username"]}
 
 
-@router.get("/logout")
+@router.get("/logout", status_code=200)
 async def logout(response: Response):
     try:
         response.delete_cookie(key=token_cookie_name)

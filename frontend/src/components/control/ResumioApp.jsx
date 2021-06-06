@@ -17,7 +17,7 @@ export default function ResumioApp() {
     <> 
       <AppNav />
       <Switch>  
-        <div>
+        <>
           <Route path="/app/input">
             <InputApp />
           </Route>
@@ -27,7 +27,7 @@ export default function ResumioApp() {
           <Route path="/app/themes">
             <ThemeApp />
           </Route>
-        </div>
+        </>
       </Switch>
     </>
     

@@ -13,7 +13,7 @@ app.include_router(user_router, tags=["User"], prefix="/user")
 app.include_router(dev_router, tags=["Dev"])
 app.include_router(resumio_router, tags=["Resumio"], prefix="/app")
 
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:3000", "localhost:3000", "127.0.0.1:3000"]
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyledNav, NavA, StyledLink } from '../style/NavStyles'
-import { Link } from 'react-router-dom'
+import { StyledNav, StyledLink } from '../style/NavStyles'
 
 export default function NavBar() {
   return (

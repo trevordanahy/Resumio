@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { AuthLabel, AuthInput, 
   ErrorMsg, AuthBttn } from '../../style/AuthStyles/AuthFormStyles'
-import {register} from '../../../adapters'
+import { LOADING, LOGIN, REGISTER } from './authForm-actions'
 
-export default function RegistrationForm({switchToLogin}) {
-  const [error, setError] = useState('')
+export default function RegistrationForm({formDispatch, error}) {
+  const registrationUrl = '/user/register'
   const [regData, setRegData] = useState({
     email: '',
     username: '',
@@ -12,13 +12,33 @@ export default function RegistrationForm({switchToLogin}) {
     confirmPassword: ''
   })
 
-  const passwordCheck = () => {
-    if (regData.password === regData.confirmPassword){
-      return true
-    }
-    return false
+  const createPostData = () => {
+    const {confirmPassword, ...postData} = regData
+    return postData
   }
 
+  //Post Callbacks for response handling
+  const registrationSuccess = () => {
+    formDispatch({
+      type: LOGIN,
+      formType:'Login',
+      error:'',
+    })
+  }
+
+  const registrationError = (error) =>{
+    if (error.status === 401)
+    formDispatch({
+      type: REGISTER,
+      formType: 'Register',
+      error: error.data.detail
+    })
+    //Will be replace by custom error page. 
+    console.log(error.data.detail)
+  }
+
+
+//Input Handlers
   const emailHandler = (e) => {
     setRegData({...regData, email: e.target.value})
   }
@@ -36,21 +56,24 @@ export default function RegistrationForm({switchToLogin}) {
   }
 
   const submitHandler = async () => {
-    if (!passwordCheck()){
-      setError('Passwords do not match')
+    if (!(regData.password === regData.confirmPassword)){
+      formDispatch({
+        type: REGISTER,
+        formType: 'Register',
+        error: 'Passwords do not match.'
+      })
       return
     }
-    // create object without confirm password key
-    const {confirmPassword, ...postData} = regData 
-    console.log(postData)
-    const result = await register(postData)
-    if (result.status === 201){
-      switchToLogin()
-    }else if (result.status === 409){
-      setError(result.data)
-    }else {
-      console.log(result.data)
-    }
+
+    const postData = createPostData()
+
+    formDispatch({
+      type: LOADING,
+      requestUrl: registrationUrl,
+      requestBody: postData,
+      successCallback: registrationSuccess,
+      errorCallback: registrationError
+    })
   }
 
   return (
