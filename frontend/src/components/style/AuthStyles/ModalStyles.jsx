@@ -36,6 +36,7 @@ export const FormBttn = styled.button`
 
 export const Form = styled.div`
   padding: 0px 20px 20px 20px;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;

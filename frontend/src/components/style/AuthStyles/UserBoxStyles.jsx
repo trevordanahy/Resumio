@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const UserBoxContainer = styled.div`
   height: 100%;
   display: flex;
+  color: ${props => props.theme.lightShade};
   flex-direction: column;
   align-self: flex-end;
   justify-content: flex-end;

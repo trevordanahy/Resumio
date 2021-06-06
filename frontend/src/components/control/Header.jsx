@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageTitle, StyledHeader } from '../style/HeaderStyles'
-import UserBox from './UserBox'
+import UserBox from './Auth/UserBox'
 
 export default function Header() {
   return (
