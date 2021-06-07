@@ -15,10 +15,12 @@ export default function UserBox() {
 
   
   const logoutSuccess = (res) => {
+    
     dispatch({
       type: AUTH_LOGOUT,
     })
     history.push("/")
+    setLoggingOut(false)
   }
 
   const logoutError = (error) =>{
