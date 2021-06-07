@@ -8,8 +8,6 @@ axios.defaults.baseURL = 'http://localhost:8000'
 const useAxios = (requestParams) => {
   const [res, setRes] = useState(null)
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(true)
-
   const source = axios.CancelToken.source()
 
   const fetchData = async () => {
@@ -21,13 +19,12 @@ const useAxios = (requestParams) => {
         return
       }
       setError(err.response)
-    } finally {
-      setLoading(false)
     }
   }
 
   useEffect(() => {
     fetchData()
+
     return () => source.cancel()
   }, [])
 
