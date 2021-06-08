@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const DraftsContainer = styled.div`
   width: 90%;
   background: ${props => props.theme.mainShade};
-  margin-top: 10px;
+  margin-top: 50px;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
