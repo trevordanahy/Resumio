@@ -1,10 +1,18 @@
-import React from 'react'
-import { TempDiv } from '../../../style/MainStyles'
+import React, { useState } from 'react'
+import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
+import DraftList from '../DraftSelector/DraftList'
+
 
 export default function InputApp() {
+  const [currentDraft, setCurrentDraft] = useState({})
+  
   return (
-    <TempDiv>
-      Input
-    </TempDiv>
+    <>
+      <DraftList setCurrentDraft={setCurrentDraft} />
+      <AppSection>
+        Input App
+      </AppSection>
+    </>
+    
   )
 }
