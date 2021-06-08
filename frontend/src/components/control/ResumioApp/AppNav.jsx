@@ -1,12 +1,18 @@
 import React from 'react'
-import {StyledAppNav, AppLink} from '../../style/NavStyles'
+import {StyledAppNav, AppLink, AppNavLinkContainer} from '../../style/ResumioApp/AppNavStyles'
 
 export default function AppNav() {
   return (
     <StyledAppNav>
-      <AppLink to="/app/input">Input</AppLink>
-      <AppLink to="/app/output">Output</AppLink>
-      <AppLink to="/app/themes">Theme</AppLink>
+      <AppNavLinkContainer>
+        <AppLink to="/app/input">Input</AppLink>
+      </AppNavLinkContainer>
+      <AppNavLinkContainer>
+        <AppLink to="/app/output">Output</AppLink>
+      </AppNavLinkContainer>
+      <AppNavLinkContainer>
+        <AppLink to="/app/themes">Theme</AppLink>
+      </AppNavLinkContainer>
     </StyledAppNav>
   )
 }

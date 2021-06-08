@@ -14,19 +14,3 @@ export const StyledLink = styled(Link)`
   margin: 10px;
 `
 
-export const StyledAppNav = styled.div`
-  width: 50%;
-  min-width: 250px;
-  height: auto;
-  background: ${props => props.theme.secondaryAccent};
-  font-size: 1rem;
-  border-radius: 10px;
-  margin: 10px 0px;
-  display: flex;
-  justify-content: space-between;
-`
-
-export const AppLink = styled(Link)`
-  color: ${props => props.theme.mainShade};
-  margin: 0px 10px;
-`
