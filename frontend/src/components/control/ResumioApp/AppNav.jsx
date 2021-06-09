@@ -10,9 +10,6 @@ export default function AppNav() {
       <AppNavLinkContainer>
         <AppLink to="/app/output">Output</AppLink>
       </AppNavLinkContainer>
-      <AppNavLinkContainer>
-        <AppLink to="/app/themes">Theme</AppLink>
-      </AppNavLinkContainer>
     </StyledAppNav>
   )
 }
