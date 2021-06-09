@@ -1,35 +1,64 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import AuthContext from '../../../context/auth-context'
 import AppNav from './AppNav'
 import InputApp from '../ResumioApp/InputApp/InputApp'
 import OutputApp from '../ResumioApp/OutputApp/OutputApp'
-import ThemeApp from '../ResumioApp/ThemeApp/ThemeApp'
-import EmptyApp from './EmptyApp'
+import DraftList from './DraftSelector/DraftList'
+import LoadingPanel from '../LoadingPanel'
 
 
 export default function ResumioApp() {
   const {state} = useContext(AuthContext)
+  const [loading, setLoading] = useState(true)
+  const [drafts, setDrafts] = useState([])
+  const [currentDraft, setCurrentDraft] = useState({})
+  const getDraftsUrl = '/app/drafts'
+
+  console.log(currentDraft)
+
+  const getDraftsSuccess = (newList) => {
+    setDrafts(newList)
+    setLoading(false)
+  }
+
+  const getDraftsError = (error) => {
+    console.log(error)
+    setLoading(false)
+  } 
 
   if (!state.isAuthenticated){
-    return (<Redirect to="/app/empty"/>)
+    return (<Redirect to="/"/>)
   }
+
+  if(loading){
+    return (
+      <LoadingPanel
+        method={'get'}
+        requestUrl={getDraftsUrl}
+        requestBody={{}} 
+        successCallback={getDraftsSuccess}
+        errorCallback={getDraftsError}
+      />
+    )
+  }
+
   return (
     <> 
       <AppNav />
       <Switch>  
         <>
           <Route path="/app/input">
-            <InputApp />
+            <>
+              <DraftList drafts={drafts} setCurrentDraft={setCurrentDraft} />
+              <InputApp currentDraft={currentDraft} />
+            </>  
           </Route>
           <Route path="/app/output">
-            <OutputApp />
-          </Route>
-          <Route path="/app/themes">
-            <ThemeApp />
-          </Route>
-          <Route exact path="/app">
-            <EmptyApp />
+            <>
+              <DraftList drafts={drafts} setCurrentDraft={setCurrentDraft} />
+              <OutputApp currentDraft={currentDraft} />
+            </>
           </Route>
         </>
       </Switch>
