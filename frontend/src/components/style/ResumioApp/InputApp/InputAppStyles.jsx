@@ -30,18 +30,6 @@ export const InputForm = styled.form`
   align-items: center;
 `
 
-export const StyledResumioSection = styled.div`
-  width: 90%;
-  height: auto;
-  background: ${props => props.theme.mainAccent};
-  color: ${props => props.theme.mainShade};
-  border: 1px solid ${props => props.theme.secondaryAccent};
-  margin: 10px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-`
-
 export const SectionList = styled.ul`
   width: 100%;
   display: flex;
@@ -50,15 +38,5 @@ export const SectionList = styled.ul`
 `
 
 
-export const ResumioSectionTitle = styled.h3`
-  width:100%;
-  color: ${props => props.theme.secondaryShade};
-`
 
-export const ResumioLabel = styled.label`
-  color: ${props => props.theme.mainShade};
-`
-export const ResumioInput = styled.input`
-  width: 50%;
-`
 

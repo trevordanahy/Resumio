@@ -1,34 +1,22 @@
 import React from 'react'
 import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
 import { InputForm, 
-  SectionList, 
-  ResumioSectionTitle, 
-  StyledResumioSection, 
+  SectionList,
   NewDraftBttn, 
   DraftTitle} from '../../../style/ResumioApp/InputApp/InputAppStyles'
+import ResumioSection from './ResumioSection'
 
 
 
 export default function InputApp({currentDraft, setCurrentDraft}) {
 
-  const capitalize = (word) => {
-    const lower = word.toLowerCase()
-    return word.charAt(0).toUpperCase() + lower.slice(1)
-  }
-
-  const getSectionTitle = (sectionObj) =>{
-    const keys = Object.keys(sectionObj)
-    const uncapTitle = keys[0] 
-    const sectionTitle = capitalize(uncapTitle)
-    return sectionTitle
-  }
-
-  //check if obj is empty
+  //check if currentDraft is empty
   if (Object.keys(currentDraft).length === 0){
     return <h2>Please select a draft</h2>
   }
 
-  
+
+
   return (
     <>
       <NewDraftBttn onClick={()=> setCurrentDraft({})}>+ New Draft</NewDraftBttn>
@@ -38,9 +26,7 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
           <SectionList>
             {currentDraft.resume.map((section) => {
               return (
-                <StyledResumioSection>
-                  <ResumioSectionTitle>{getSectionTitle(section)}</ResumioSectionTitle>
-                </StyledResumioSection>
+                <ResumioSection key={Object.keys(section)[0]} section={section} />
               )
             } )}
           </SectionList>
