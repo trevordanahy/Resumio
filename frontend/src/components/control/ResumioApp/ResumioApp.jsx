@@ -15,8 +15,6 @@ export default function ResumioApp() {
   const [currentDraft, setCurrentDraft] = useState({})
   const getDraftsUrl = '/app/drafts'
 
-  console.log(currentDraft)
-
   const getDraftsSuccess = (newList) => {
     setDrafts(newList)
     setLoading(false)
@@ -51,7 +49,7 @@ export default function ResumioApp() {
           <Route path="/app/input">
             <>
               <DraftList drafts={drafts} setCurrentDraft={setCurrentDraft} />
-              <InputApp currentDraft={currentDraft} />
+              <InputApp currentDraft={currentDraft} setCurrentDraft={setCurrentDraft} />
             </>  
           </Route>
           <Route path="/app/output">
