@@ -1,6 +1,11 @@
 import React from 'react'
-import { InputForm, ResumioSectionTitle, StyledResumioSection, NewDraftBttn } from '../../../style/ResumioApp/InputApp/InputAppStyles'
 import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
+import { InputForm, 
+  SectionList, 
+  ResumioSectionTitle, 
+  StyledResumioSection, 
+  NewDraftBttn, 
+  DraftTitle} from '../../../style/ResumioApp/InputApp/InputAppStyles'
 
 
 
@@ -28,8 +33,9 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
     <>
       <NewDraftBttn onClick={()=> setCurrentDraft({})}>+ New Draft</NewDraftBttn>
       <AppSection>
+        <DraftTitle>{currentDraft.title}</DraftTitle>
         <InputForm>
-          <ul>
+          <SectionList>
             {currentDraft.resume.map((section) => {
               return (
                 <StyledResumioSection>
@@ -37,7 +43,7 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
                 </StyledResumioSection>
               )
             } )}
-          </ul>
+          </SectionList>
         </InputForm>
       </AppSection>
     </>

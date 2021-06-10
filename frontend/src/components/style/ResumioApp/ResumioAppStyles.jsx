@@ -9,4 +9,6 @@ export const AppSection = styled.section`
   border-color: ${props => props.theme.secondaryAccent};
   margin-top: 10px;
   display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 `

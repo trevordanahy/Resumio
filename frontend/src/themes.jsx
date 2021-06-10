@@ -2,7 +2,7 @@ const mainColor = '#072757'
 const lightShade = '#FFFEEB'
 const darkShade = '#090C0C'
 const lightAccent = '#D1D5DB'
-const darkAccent = '#154866'
+const darkAccent = '#041c2c'
 
 export const lightTheme = {
   mainShade: lightShade,

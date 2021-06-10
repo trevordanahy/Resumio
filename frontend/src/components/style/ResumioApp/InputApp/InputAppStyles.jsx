@@ -11,6 +11,13 @@ export const NewDraftBttn = styled.button`
   border-radius: 5px;
 `
 
+export const DraftTitle = styled.h2`
+  width: 90%;
+  background: ${props => props.theme.mainShade};
+  color: ${props => props.theme.secondaryShade};
+  margin: 5px 0px 10px 0px;
+`
+
 export const InputForm = styled.form`
   width: 90%;
   min-height: 70vh;
@@ -26,9 +33,17 @@ export const InputForm = styled.form`
 export const StyledResumioSection = styled.div`
   width: 90%;
   height: auto;
-  background: ${props => props.theme.secondaryShade};
+  background: ${props => props.theme.mainAccent};
   color: ${props => props.theme.mainShade};
+  border: 1px solid ${props => props.theme.secondaryAccent};
   margin: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`
+
+export const SectionList = styled.ul`
+  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -37,7 +52,7 @@ export const StyledResumioSection = styled.div`
 
 export const ResumioSectionTitle = styled.h3`
   width:100%;
-  color: ${props => props.theme.mainShade};
+  color: ${props => props.theme.secondaryShade};
 `
 
 export const ResumioLabel = styled.label`
