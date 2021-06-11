@@ -4,6 +4,7 @@ import SectionSwitch from './SectionSwitch'
 
 function ResumioSection({section}) {
   const sectionType = Object.keys(section)[0]
+  const sectionData = section[sectionType]
 
   const capitalize = (word) => {
     const lower = word.toLowerCase()
@@ -13,7 +14,7 @@ function ResumioSection({section}) {
   return (
     <SectionContainer>
       <SectionTitle>{capitalize(sectionType)}</SectionTitle>
-      <SectionSwitch sectionType={sectionType}/>
+      <SectionSwitch sectionType={sectionType} sectionData={sectionData} />
     </SectionContainer>
   )
 }

@@ -15,8 +15,6 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
     return <h2>Please select a draft</h2>
   }
 
-
-
   return (
     <>
       <NewDraftBttn onClick={()=> setCurrentDraft({})}>+ New Draft</NewDraftBttn>

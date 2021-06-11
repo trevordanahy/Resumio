@@ -1,9 +1,10 @@
 import React from 'react'
+import BasicsI from './SectionComponents/BasicsI'
 
-function SectionSwitch({sectionType}) {
+function SectionSwitch({sectionType, sectionData }) {
   switch(sectionType){
     case 'basics':
-      return <div>Basics</div>
+      return <BasicsI sectionData={sectionData}/>
     case 'work':
       return <div>Work</div>
     case 'volunteer':
