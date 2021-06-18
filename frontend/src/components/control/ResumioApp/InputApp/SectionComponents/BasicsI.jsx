@@ -1,6 +1,7 @@
 import React from 'react'
 import ContactI from './ContactI'
 import LocationI from './LocationI'
+import ProfilesI from './ProfilesI'
 import { ResumioInput, 
   ResumioLabel, 
   ResumioTextArea } from '../../../../style/ResumioApp/InputApp/SectionStyles'
@@ -46,6 +47,11 @@ function BasicsI({sectionData, sectionType, resumeIndex}) {
       <ResumioInput 
         {...register(`resume.${resumeIndex}.${sectionType}.img`)} 
         name="img" defaultValue={sectionData["img"]}
+      />
+      <ProfilesI 
+        profiles={sectionData['profiles']} 
+        parent={sectionType}
+        resumeIndex={resumeIndex}
       />
     </>
   )
