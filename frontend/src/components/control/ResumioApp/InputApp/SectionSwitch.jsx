@@ -1,12 +1,24 @@
 import React from 'react'
 import BasicsI from './SectionComponents/BasicsI'
+import WorkI from './SectionComponents/WorkI'
 
-function SectionSwitch({sectionType, sectionData }) {
+function SectionSwitch({sectionType, sectionData, resumeIndex }) {
+
+
+
   switch(sectionType){
     case 'basics':
-      return <BasicsI sectionData={sectionData}/>
+      return <BasicsI 
+                sectionType={sectionType} 
+                sectionData={sectionData} 
+                resumeIndex={resumeIndex}
+              />
     case 'work':
-      return <div>Work</div>
+      return <WorkI 
+                sectionType={sectionType}
+                sectionData={sectionData} 
+                resumeIndex={resumeIndex}
+              />
     case 'volunteer':
       return <div>Volunteer</div>
     case 'education':

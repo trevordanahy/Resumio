@@ -2,7 +2,7 @@ import React from 'react'
 import {SectionContainer, SectionTitle} from '../../../style/ResumioApp/InputApp/SectionStyles'
 import SectionSwitch from './SectionSwitch'
 
-function ResumioSection({section}) {
+function ResumioSection({section, resumeIndex}) {
   const sectionType = Object.keys(section)[0]
   const sectionData = section[sectionType]
 
@@ -14,7 +14,11 @@ function ResumioSection({section}) {
   return (
     <SectionContainer>
       <SectionTitle>{capitalize(sectionType)}</SectionTitle>
-      <SectionSwitch sectionType={sectionType} sectionData={sectionData} />
+      <SectionSwitch 
+        sectionType={sectionType} 
+        sectionData={sectionData} 
+        resumeIndex={resumeIndex} 
+      />
     </SectionContainer>
   )
 }
