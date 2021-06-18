@@ -1,5 +1,6 @@
 import React from 'react'
-import {SectionContainer, SectionTitle} from '../../../style/ResumioApp/InputApp/SectionStyles'
+import {SectionContainer, 
+        SectionTitle} from '../../../style/ResumioApp/InputApp/SectionStyles'
 import SectionSwitch from './SectionSwitch'
 
 function ResumioSection({section, resumeIndex}) {

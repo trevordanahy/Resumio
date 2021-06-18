@@ -36,7 +36,11 @@ export const SectionLegend = styled.legend`
   margin-left: auto;
   margin-right: auto;
   color: ${props => props.theme.secondaryShade};
-  
+`
+export const SubSectionTitle = styled.h5`
+  color: ${props => props.theme.secondaryShade};
+  margin: 2px 2px 2px 10px;
+  align-self: flex-start;
 `
 
 export const ResumioLabel = styled.label`
