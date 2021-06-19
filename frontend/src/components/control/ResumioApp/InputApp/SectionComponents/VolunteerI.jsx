@@ -14,7 +14,6 @@ function VolunteerI({sectionData, sectionType, resumeIndex}) {
   return (
     <>
      {sectionData.map((org, index) => {
-       console.log(org)
        return(
         <SectionFieldset key={`${org.name}_${org.position}`}>
           <SubSectionTitle>{org.organization}</SubSectionTitle>
