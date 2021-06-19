@@ -2,8 +2,6 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import {ResumioLabel, 
         ResumioInput,
-        ResumioTextArea, 
-        SectionLegend,
         SectionFieldset} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 import RepeatableItems from './RepeatableItems'
 
