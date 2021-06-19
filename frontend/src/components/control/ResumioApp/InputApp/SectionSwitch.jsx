@@ -2,6 +2,7 @@ import React from 'react'
 import AwardsI from './SectionComponents/AwardsI'
 import BasicsI from './SectionComponents/BasicsI'
 import EducationI from './SectionComponents/EducationI'
+import PublicationsI from './SectionComponents/PublicationsI'
 import VolunteerI from './SectionComponents/VolunteerI'
 import WorkI from './SectionComponents/WorkI'
 
@@ -41,7 +42,11 @@ function SectionSwitch({sectionType, sectionData, resumeIndex }) {
                 resumeIndex={resumeIndex}
               />
     case 'publications':
-      return <div>Publications</div>
+      return <PublicationsI 
+                sectionType={sectionType}
+                sectionData={sectionData} 
+                resumeIndex={resumeIndex}
+              />
     case 'skills':
       return <div>Skills</div>
     case 'languages':

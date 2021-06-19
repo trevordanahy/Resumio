@@ -14,7 +14,6 @@ function AwardsI({sectionData, sectionType, resumeIndex}) {
   return (
     <>
       {sectionData.map((award, index) => {
-        console.log(award)
         return(
           <SectionFieldset key={`${award.title}_${award.date}`}>
             <SectionLegend>{award.title}</SectionLegend>
@@ -43,7 +42,7 @@ function AwardsI({sectionData, sectionType, resumeIndex}) {
             {...register(`resume.${resumeIndex}.work.${index}.summary`)} 
             name="summary" 
             defaultValue={award["summary"]} 
-          />
+            />
           </SectionFieldset>
         )
       })}
