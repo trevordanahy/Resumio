@@ -4,6 +4,7 @@ import BasicsI from './SectionComponents/BasicsI'
 import EducationI from './SectionComponents/EducationI'
 import LanguagesI from './SectionComponents/LanguagesI'
 import PublicationsI from './SectionComponents/PublicationsI'
+import ReferencesI from './SectionComponents/ReferencesI'
 import SkillsI from './SectionComponents/SkillsI'
 import VolunteerI from './SectionComponents/VolunteerI'
 import WorkI from './SectionComponents/WorkI'
@@ -62,7 +63,11 @@ function SectionSwitch({sectionType, sectionData, resumeIndex }) {
                 resumeIndex={resumeIndex}
              />
     case 'references':
-      return <div>References</div>
+      return <ReferencesI 
+                sectionType={sectionType}
+                sectionData={sectionData} 
+                resumeIndex={resumeIndex}
+             />
     case 'projects':
       return <div>Projects</div>
     default:

@@ -5,33 +5,43 @@ import { ResumioLabel,
   SectionFieldset, 
   SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function ContactI({contact, parent, resumeIndex}) {
+function ContactI({contact, parent, parentIndex, resumeIndex}) {
   const {register} = useFormContext()
+
+  function makeRegistrationString (parentIndex){
+    if (parentIndex || parentIndex === 0){
+      return `resume.${resumeIndex}.${parent}.${parentIndex}.contact`
+    } else {
+      return `resume.${resumeIndex}.${parent}.contact`
+    }
+  }
+
+  const regString = makeRegistrationString(parentIndex)
 
   return (
     <SectionFieldset>
       <SectionLegend>Contact</SectionLegend>
       <ResumioLabel htmlFor="firstName">First Name</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${parent}.contact.firstName`)} 
+        {...register(regString + '.firstName')} 
         name="firstName" 
         defaultValue={contact["firstName"]}
       />
       <ResumioLabel htmlFor="lastName">Last Name</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${parent}.contact.lastName`)} 
+        {...register(regString + '.lastName')} 
         name="lastName" 
         defaultValue={contact["lastName"]}
       />
       <ResumioLabel htmlFor="phone">Phone</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${parent}.contact.phone`)} 
+        {...register(regString + '.phone')} 
         name="phone" 
         defaultValue={contact["phone"]}
       />
       <ResumioLabel htmlFor="email">Email</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${parent}.contact.email`)} 
+        {...register(regString + '.email')} 
         name="email" 
         defaultValue={contact["email"]}
       />

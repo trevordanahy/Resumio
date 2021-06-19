@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import RepeatableItems from './RepeatableItems'
 import {ResumioLabel, 
         ResumioInput,
         ResumioTextArea,
