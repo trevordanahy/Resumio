@@ -6,7 +6,7 @@ import {ResumioLabel,
         ResumioTextArea,
         SubSectionTitle,
         SectionFieldset,
-        SectionTitle} from '../../../../style/ResumioApp/InputApp/SectionStyles'
+        } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
 function VolunteerI({sectionData, sectionType, resumeIndex}) {
   const {register} = useFormContext()
@@ -65,12 +65,10 @@ function VolunteerI({sectionData, sectionType, resumeIndex}) {
             resumeIndex={resumeIndex}
           />
         </SectionFieldset>
-        
-        
+
        )
      })}
     </>
-    
   )
 }
 

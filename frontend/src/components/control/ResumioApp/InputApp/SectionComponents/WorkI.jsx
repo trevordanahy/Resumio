@@ -55,7 +55,6 @@ function WorkI({sectionData, sectionType, resumeIndex}) {
             parentIndex={index}
             resumeIndex={resumeIndex}
           />
-          
         </SectionFieldset>
     )
     })}
