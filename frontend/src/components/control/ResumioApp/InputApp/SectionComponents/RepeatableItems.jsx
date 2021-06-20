@@ -6,7 +6,7 @@ import {
         SubSectionTitle
         } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function RepeatableItems({repeatable, title, parent, parentIndex, resumeIndex}) {
+function RepeatableItems({repeatable, title, parentIndex, registrationStr}) {
   const {register} = useFormContext()
 
   return (
@@ -16,8 +16,8 @@ function RepeatableItems({repeatable, title, parent, parentIndex, resumeIndex}) 
         return (
           <ResumioTextArea key={`${title}_${index}`}
             rows='2'
-            {...register(`resume.${resumeIndex}.${parent}.${parentIndex}.${title}.${index}`)} 
-            name={`${parent}.${title}.${index}`} 
+            {...register(registrationStr +`${parentIndex}.${title}.${index}`)} 
+            name={`${title}.${index}`} 
             defaultValue={item} 
           />
         )

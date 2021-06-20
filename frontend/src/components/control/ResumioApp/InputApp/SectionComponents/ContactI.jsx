@@ -5,18 +5,18 @@ import { ResumioLabel,
   SectionFieldset, 
   SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function ContactI({contact, parent, parentIndex, resumeIndex}) {
+function ContactI({contact, parent, parentIndex, registrationStr}) {
   const {register} = useFormContext()
 
-  function makeRegistrationString (parentIndex){
+  function makeRegString (parentIndex){
     if (parentIndex || parentIndex === 0){
-      return `resume.${resumeIndex}.${parent}.${parentIndex}.contact`
+      return (registrationStr + `${parentIndex}.contact` )
     } else {
-      return `resume.${resumeIndex}.${parent}.contact`
+      return (registrationStr + 'contact')
     }
   }
 
-  const regString = makeRegistrationString(parentIndex)
+  const regString = makeRegString(parentIndex)
 
   return (
     <SectionFieldset>

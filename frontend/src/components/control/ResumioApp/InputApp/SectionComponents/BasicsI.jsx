@@ -7,7 +7,7 @@ import { ResumioInput,
   ResumioTextArea } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 import { useFormContext } from 'react-hook-form'
 
-function BasicsI({sectionData, sectionType, resumeIndex}) {
+function BasicsI({sectionData, registrationStr}) {
   const {register} = useFormContext()
   const contact = sectionData["contact"]
   const location = sectionData["location"]
@@ -16,42 +16,39 @@ function BasicsI({sectionData, sectionType, resumeIndex}) {
     <>
       <ContactI 
         contact={contact} 
-        parent={sectionType} 
-        resumeIndex={resumeIndex}
+        registrationStr={registrationStr}
       />
       <LocationI 
         location={location} 
-        parent={sectionType}
-        resumeIndex={resumeIndex}
+        registrationStr={registrationStr}
       />
       <ResumioLabel htmlFor="jobTitle">Job Title</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${sectionType}.jobTitle`)} 
+        {...register(registrationStr + 'jobTitle')} 
         name="jobTitle"  
         defaultValue={sectionData["jobTitle"]}
       />
       <ResumioLabel htmlFor="summary">About</ResumioLabel>
       <ResumioTextArea 
-        {...register(`resume.${resumeIndex}.${sectionType}.summary`)}
+        {...register(registrationStr + 'summary')}
         rows='5' 
         name="summary" 
         defaultValue={sectionData["summary"]}
       />
       <ResumioLabel htmlFor="url">Personal Website</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${sectionType}.url`)} 
+        {...register(registrationStr + 'url')} 
         name="url" 
         defaultValue={sectionData["url"]}
       />
       <ResumioLabel htmlFor="img">Personal Image</ResumioLabel>
       <ResumioInput 
-        {...register(`resume.${resumeIndex}.${sectionType}.img`)} 
+        {...register(registrationStr + 'img')} 
         name="img" defaultValue={sectionData["img"]}
       />
       <ProfilesI 
         profiles={sectionData['profiles']} 
-        parent={sectionType}
-        resumeIndex={resumeIndex}
+        registrationStr={registrationStr}
       />
     </>
   )

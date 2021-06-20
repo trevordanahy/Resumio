@@ -8,7 +8,7 @@ import {ResumioLabel,
         SectionFieldset,
         } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function VolunteerI({sectionData, sectionType, resumeIndex}) {
+function VolunteerI({sectionData, registrationStr}) {
   const {register} = useFormContext()
 
   return (
@@ -19,49 +19,48 @@ function VolunteerI({sectionData, sectionType, resumeIndex}) {
           <SubSectionTitle>{org.organization}</SubSectionTitle>
           <ResumioLabel htmlFor="organization">Organization</ResumioLabel>
           <ResumioInput 
-            {...register(`resume.${resumeIndex}.volunteer.${index}.organization`)} 
+            {...register(registrationStr + `${index}.organization`)} 
             name="organization" 
             defaultValue={org["organization"]}
           />
           <ResumioLabel htmlFor="url">Org Website</ResumioLabel>
           <ResumioInput 
-            {...register(`resume.${resumeIndex}.volunteer.${index}.url`)} 
+            {...register(registrationStr + `${index}.url`)} 
             name="url" 
             defaultValue={org["url"]} 
           />
           <ResumioLabel htmlFor="position">Position</ResumioLabel>
           <ResumioInput 
-            {...register(`resume.${resumeIndex}.volunteer.${index}.position`)} 
+            {...register(registrationStr + `${index}.position`)} 
             name="position" 
             defaultValue={org["position"]} 
           />
           <ResumioLabel htmlFor="startDate">Start Date</ResumioLabel>
           <ResumioInput 
             type='date'
-            {...register(`resume.${resumeIndex}.volunteer.${index}.startDate`)} 
+            {...register(registrationStr + `${index}.startDate`)} 
             name="startDate" 
             defaultValue={org["startDate"]} 
           />
           <ResumioLabel htmlFor="endDate">End Date</ResumioLabel>
           <ResumioInput 
             type='date'
-            {...register(`resume.${resumeIndex}.work.${index}.endDate`)} 
+            {...register(registrationStr + `${index}.endDate`)} 
             name="endDate" 
             defaultValue={org["endDate"]} 
           />
           <ResumioLabel htmlFor="summary">Job Description</ResumioLabel>
           <ResumioTextArea 
             rows='3'
-            {...register(`resume.${resumeIndex}.volunteer.${index}.summary`)} 
+            {...register(registrationStr + `${index}.summary`)} 
             name="summary" 
             defaultValue={org["summary"]} 
           />
           <RepeatableItems 
             repeatable={org['highlights']}
             title={'highlights'} 
-            parent={sectionType} 
             parentIndex={index}
-            resumeIndex={resumeIndex}
+            registrationStr={registrationStr}
           />
         </SectionFieldset>
 

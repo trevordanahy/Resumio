@@ -5,7 +5,7 @@ import { ResumioLabel,
   SectionFieldset, 
   SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function ProfilesI({profiles, parent, parentIndex, resumeIndex}) {
+function ProfilesI({profiles, parent, registrationIndex}) {
   const {register} = useFormContext()
 
   return (
@@ -16,19 +16,19 @@ function ProfilesI({profiles, parent, parentIndex, resumeIndex}) {
           <SectionFieldset key={`${profile.network}_${profile.username}`}>
             <ResumioLabel htmlFor="network">Network</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.${parent}.profiles.${index}.network`)} 
+              {...register(registrationIndex + `${index}.network`)} 
               name="network" 
               defaultValue={profile["network"]}
             />
             <ResumioLabel htmlFor="username">Username</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.${parent}.profiles.${index}.username`)} 
+              {...register(registrationIndex + `${index}.username`)} 
               name="username" 
               defaultValue={profile["username"]}
             />
             <ResumioLabel htmlFor="url">URL</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.${parent}.profiles.${index}.url`)} 
+              {...register(registrationIndex + `${index}.url`)} 
               name="url" 
               defaultValue={profile["url"]}
             />

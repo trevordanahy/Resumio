@@ -6,7 +6,7 @@ import {ResumioLabel,
         SectionLegend,
         SectionFieldset} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function PublicationsI({sectionData, sectionType, resumeIndex}) {
+function PublicationsI({sectionData,registrationStr}) {
   const {register} = useFormContext()
   return (
     <>
@@ -16,19 +16,19 @@ function PublicationsI({sectionData, sectionType, resumeIndex}) {
             <SectionLegend>{publication.name}</SectionLegend>
             <ResumioLabel htmlFor="name">Publication Title</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.publications.${index}.name`)} 
+              {...register(registrationStr +`${index}.name`)} 
               name="name" 
               defaultValue={publication["name"]}
             />
             <ResumioLabel htmlFor="name">Publisher</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.publications.${index}.publisher`)} 
+              {...register(registrationStr +`${index}.publisher`)} 
               name="publisher" 
               defaultValue={publication["publisher"]}
             />
             <ResumioLabel htmlFor="releaseDate">Publication Date</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.publications.${index}.releaseDate`)}
+              {...register(registrationStr +`${index}.releaseDate`)}
               type='date' 
               name="releaseDate" 
               defaultValue={publication["releaseDate"]}
@@ -36,13 +36,13 @@ function PublicationsI({sectionData, sectionType, resumeIndex}) {
             <ResumioLabel htmlFor="summary">Synopsis</ResumioLabel>
             <ResumioTextArea 
             rows='4'
-            {...register(`resume.${resumeIndex}.publications.${index}.summary`)} 
+            {...register(registrationStr +`${index}.summary`)} 
             name="summary" 
             defaultValue={publication["summary"]} 
             />
             <ResumioLabel htmlFor="url">URL</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.publications.${index}.url`)}
+              {...register(registrationStr +`${index}.url`)}
               name="url" 
               defaultValue={publication["url"]}
             />

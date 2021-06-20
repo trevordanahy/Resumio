@@ -4,7 +4,7 @@ import {ResumioLabel,
         ResumioInput,
         SectionFieldset} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function LanguagesI({sectionData, sectionType, resumeIndex}) {
+function LanguagesI({sectionData, registrationStr}) {
   const {register} = useFormContext()
   return (
     <>
@@ -13,13 +13,13 @@ function LanguagesI({sectionData, sectionType, resumeIndex}) {
           <SectionFieldset key={language.language}>
             <ResumioLabel htmlFor="language">Language</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.${sectionType}.${index}.language`)} 
+              {...register(registrationStr + `${index}.language`)} 
               name="language" 
               defaultValue={language["language"]} 
             />
             <ResumioLabel htmlFor="fluency">Fluency</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.${sectionType}.${index}.fluency`)} 
+              {...register(registrationStr + `${index}.fluency`)} 
               name="fluency" 
               defaultValue={language["fluency"]} 
             />

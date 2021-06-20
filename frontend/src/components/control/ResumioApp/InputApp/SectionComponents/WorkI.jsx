@@ -7,7 +7,7 @@ import {ResumioLabel,
         SectionLegend,
         SectionFieldset} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function WorkI({sectionData, sectionType, resumeIndex}) {
+function WorkI({sectionData, registrationStr}) {
   const {register} = useFormContext()
   return (
   <>
@@ -17,43 +17,42 @@ function WorkI({sectionData, sectionType, resumeIndex}) {
           <SectionLegend>{job.name}</SectionLegend>
           <ResumioLabel htmlFor="name">Company Name</ResumioLabel>
           <ResumioInput 
-            {...register(`resume.${resumeIndex}.work.${index}.name`)} 
+            {...register(registrationStr + `${index}.name`)} 
             name="name" 
             defaultValue={job["name"]}
           />
           <ResumioLabel htmlFor="position">Position</ResumioLabel>
           <ResumioInput 
-            {...register(`resume.${resumeIndex}.work.${index}.position`)} 
+            {...register(registrationStr + `${index}.position`)} 
             name="position" 
             defaultValue={job["position"]} 
           />
           <ResumioLabel htmlFor="startDate">Start Date</ResumioLabel>
           <ResumioInput 
             type='date'
-            {...register(`resume.${resumeIndex}.work.${index}.startDate`)} 
+            {...register(registrationStr + `${index}.startDate`)} 
             name="startDate" 
             defaultValue={job["startDate"]} 
           />
           <ResumioLabel htmlFor="endDate">End Date</ResumioLabel>
           <ResumioInput 
             type='date'
-            {...register(`resume.${resumeIndex}.work.${index}.endDate`)} 
+            {...register(registrationStr + `${index}.endDate`)} 
             name="endDate" 
             defaultValue={job["endDate"]} 
           />
           <ResumioLabel htmlFor="summary">Job Description</ResumioLabel>
           <ResumioTextArea 
             rows='3'
-            {...register(`resume.${resumeIndex}.work.${index}.summary`)} 
+            {...register(registrationStr + `${index}.summary`)} 
             name="summary" 
             defaultValue={job["summary"]} 
           />
           <RepeatableItems 
             repeatable={job['highlights']}
             title={'highlights'} 
-            parent={sectionType} 
             parentIndex={index}
-            resumeIndex={resumeIndex}
+            registrationStr={registrationStr}
           />
         </SectionFieldset>
     )

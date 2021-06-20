@@ -7,9 +7,8 @@ import {
   ResumioTextArea } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 import { useFormContext } from 'react-hook-form'
 
-function ReferencesI({sectionData, sectionType, resumeIndex}) {
+function ReferencesI({sectionData, registrationStr}) {
   const {register} = useFormContext()
-  const regString = `resume.${resumeIndex}.${sectionType}.`
   
   return (
     <>
@@ -18,19 +17,18 @@ function ReferencesI({sectionData, sectionType, resumeIndex}) {
           <SectionFieldset key={`${reference.contact.firstName}_${reference.contact.lastName}`}>
             <ContactI 
               contact={reference.contact} 
-              parent={sectionType}
               parentIndex={index} 
-              resumeIndex={resumeIndex}
+              registrationStr={registrationStr}
             />
             <ResumioLabel htmlFor="relationship">Relationship</ResumioLabel>
             <ResumioInput 
-              {...register(regString +`${index}.relationship`)} 
+              {...register(registrationStr + `${index}.relationship`)} 
               name="relationship" 
               defaultValue={reference["relationship"]} 
             />
             <ResumioLabel htmlFor="reference">Reference</ResumioLabel>
             <ResumioTextArea 
-              {...register(regString + `${index}.reference`)}
+              {...register(registrationStr + `${index}.reference`)}
               rows='3' 
               name="reference" 
               defaultValue={reference["reference"]}

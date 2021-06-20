@@ -5,7 +5,7 @@ import {ResumioLabel,
         SectionFieldset} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 import RepeatableItems from './RepeatableItems'
 
-function SkillsI({sectionData, sectionType, resumeIndex}) {
+function SkillsI({sectionData, registrationStr}) {
   const {register} = useFormContext()
   return (
     <>
@@ -14,22 +14,21 @@ function SkillsI({sectionData, sectionType, resumeIndex}) {
           <SectionFieldset key={skill.name}>
             <ResumioLabel htmlFor="name">Skill Name</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.skills.${index}.name`)} 
+              {...register(registrationStr + `${index}.name`)} 
               name="name" 
               defaultValue={skill["name"]} 
             />
             <ResumioLabel htmlFor="level">Mastery Level</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.skills.${index}.level`)} 
+              {...register(registrationStr + `${index}.level`)} 
               name="level" 
               defaultValue={skill["title"]} 
             />
             <RepeatableItems 
               repeatable={skill['keywords']}
-              title={'Keywords'} 
-              parent={sectionType} 
+              title={'Keywords'}  
               parentIndex={index}
-              resumeIndex={resumeIndex}
+              registrationStr={registrationStr}
             />
 
           </SectionFieldset>

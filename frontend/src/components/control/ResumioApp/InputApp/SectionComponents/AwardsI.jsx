@@ -7,7 +7,7 @@ import {ResumioLabel,
         SectionFieldset,
         } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function AwardsI({sectionData, sectionType, resumeIndex}) {
+function AwardsI({sectionData, registrationStr}) {
   const {register} = useFormContext()
 
   return (
@@ -18,19 +18,19 @@ function AwardsI({sectionData, sectionType, resumeIndex}) {
             <SectionLegend>{award.title}</SectionLegend>
             <ResumioLabel htmlFor="awarder">Awarder</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.award.${index}.awarder`)} 
+              {...register(registrationStr + `${index}.awarder`)} 
               name="awarder" 
               defaultValue={award["awarder"]} 
             />
             <ResumioLabel htmlFor="title">Award Title</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.award.${index}.title`)} 
+              {...register(registrationStr + `${index}.title`)} 
               name="title" 
               defaultValue={award["title"]} 
             />
             <ResumioLabel htmlFor="date">Award Date</ResumioLabel>
             <ResumioInput 
-              {...register(`resume.${resumeIndex}.award.${index}.date`)} 
+              {...register(registrationStr +`${index}.date`)} 
               type='date'
               name="title" 
               defaultValue={award["date"]} 
@@ -38,7 +38,7 @@ function AwardsI({sectionData, sectionType, resumeIndex}) {
             <ResumioLabel htmlFor="summary">Award Description</ResumioLabel>
             <ResumioTextArea 
             rows='3'
-            {...register(`resume.${resumeIndex}.work.${index}.summary`)} 
+            {...register(registrationStr + `${index}.summary`)} 
             name="summary" 
             defaultValue={award["summary"]} 
             />

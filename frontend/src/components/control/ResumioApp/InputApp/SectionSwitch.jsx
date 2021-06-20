@@ -11,69 +11,58 @@ import VolunteerI from './SectionComponents/VolunteerI'
 import WorkI from './SectionComponents/WorkI'
 
 function SectionSwitch({sectionType, sectionData, resumeIndex }) {
-
-
+  const registrationStr = `resume.${resumeIndex}.${sectionType}.`
 
   switch(sectionType){
     case 'basics':
       return <BasicsI 
-                sectionType={sectionType} 
+                registrationStr={registrationStr} 
                 sectionData={sectionData} 
-                resumeIndex={resumeIndex}
               />
     case 'work':
       return <WorkI 
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'volunteer':
       return <VolunteerI
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'education':
       return <EducationI
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'awards':
       return <AwardsI
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'publications':
       return <PublicationsI 
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'skills':
       return <SkillsI
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     case 'languages':
       return <LanguagesI 
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
              />
     case 'references':
       return <ReferencesI 
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
              />
     case 'projects':
       return <ProjectsI 
-                sectionType={sectionType}
-                sectionData={sectionData} 
-                resumeIndex={resumeIndex}
+                registrationStr={registrationStr} 
+                sectionData={sectionData}
               />
     default:
       return null
