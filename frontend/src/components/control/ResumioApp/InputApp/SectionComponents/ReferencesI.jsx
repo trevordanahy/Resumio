@@ -14,7 +14,6 @@ function ReferencesI({sectionData, sectionType, resumeIndex}) {
   return (
     <>
       {sectionData.map((reference, index) => {
-        console.log(reference)
         return(
           <SectionFieldset key={`${reference.contact.firstName}_${reference.contact.lastName}`}>
             <ContactI 

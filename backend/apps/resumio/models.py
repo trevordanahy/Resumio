@@ -343,7 +343,7 @@ class Project(BaseModel):
     url: str
     roles: list
     entity: str
-    project_type: str
+    projectType: str
 
     class Config:
         schema_extra = {
@@ -357,7 +357,7 @@ class Project(BaseModel):
                 "url": "https://www.youtube.com/watch?v=hFZFjoX2cGg",
                 "roles": ["project lead", "cameraman"],
                 "entity": "Mark Rober Labs",
-                "project_type": "Obstacle Course",
+                "projectType": "Obstacle Course",
             }
         }
 
