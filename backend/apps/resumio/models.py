@@ -98,7 +98,6 @@ class BasicsObj(BaseModel):
 class Work(BaseModel):
     name: str
     location: Location
-    description: str
     position: str
     url: str
     startDate: str
@@ -111,7 +110,6 @@ class Work(BaseModel):
             "example": {
                 "name": "Strictland Propane",
                 "location": Location.Config.schema_extra["example"],
-                "description": "Propane and Propane Accessories",
                 "position": "Assistant Manager",
                 "url": "https://kingofthehill.fandom.com/wiki/Strickland_Propane",
                 "startDate": "2013-12-01",
@@ -313,12 +311,14 @@ class IntrestsList(BaseModel):
 
 class Reference(BaseModel):
     contact: Optional[Contact]
+    relationship: str
     reference: str
 
     class Config:
         schema_extra = {
             "example": {
                 "contact": Contact.Config.schema_extra["example"],
+                "relationship": "My manager",
                 "reference": "They draw the best graphs",
             }
         }
@@ -343,12 +343,12 @@ class Project(BaseModel):
     url: str
     roles: list
     entity: str
-    project_type: str
+    projectType: str
 
     class Config:
         schema_extra = {
             "example": {
-                "name": "Squirel Obstacle Course",
+                "name": "Squirrel Obstacle Course",
                 "description": "An obstacle course for squirrels with treat at the end.",
                 "highlights": ["Over 60 million youtube views", "2 million likes"],
                 "keywords": ["self project", "woodworking", "projectiles"],
@@ -357,7 +357,7 @@ class Project(BaseModel):
                 "url": "https://www.youtube.com/watch?v=hFZFjoX2cGg",
                 "roles": ["project lead", "cameraman"],
                 "entity": "Mark Rober Labs",
-                "project_type": "Obstacle Course",
+                "projectType": "Obstacle Course",
             }
         }
 
