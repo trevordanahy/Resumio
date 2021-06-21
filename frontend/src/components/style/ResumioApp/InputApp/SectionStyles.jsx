@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SectionContainer = styled.div`
-  width: 90%;
+  width: 80%;
   height: auto;
   background: ${props => props.theme.mainAccent};
   color: ${props => props.theme.mainShade};

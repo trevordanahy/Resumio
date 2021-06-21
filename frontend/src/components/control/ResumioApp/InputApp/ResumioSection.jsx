@@ -2,9 +2,9 @@ import React from 'react'
 import {SectionContainer, 
         SectionTitle} from '../../../style/ResumioApp/InputApp/SectionStyles'
 import SectionSwitch from './SectionSwitch'
+import { Draggable } from "react-beautiful-dnd"
 
-function ResumioSection({section, resumeIndex}) {
-  const sectionType = Object.keys(section)[0]
+function ResumioSection({sectionType, section, resumeIndex}) {
   const sectionData = section[sectionType]
 
   const capitalize = (word) => {
@@ -13,14 +13,23 @@ function ResumioSection({section, resumeIndex}) {
   }
 
   return (
-    <SectionContainer>
-      <SectionTitle>{capitalize(sectionType)}</SectionTitle>
-      <SectionSwitch 
-        sectionType={sectionType} 
-        sectionData={sectionData} 
-        resumeIndex={resumeIndex} 
-      />
-    </SectionContainer>
+    <Draggable draggableId={sectionType} index={resumeIndex}>
+      {(provided, snapshot) => (
+        <SectionContainer
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+            <SectionTitle>{capitalize(sectionType)}</SectionTitle>
+            <SectionSwitch 
+              sectionType={sectionType} 
+              sectionData={sectionData} 
+              resumeIndex={resumeIndex} 
+            />
+        </SectionContainer>
+      )}
+    </Draggable>
+    
   )
 }
 
