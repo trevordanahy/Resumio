@@ -1,5 +1,12 @@
 import styled from 'styled-components'
 
+export const StyledSectionList = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`
+
 export const SectionContainer = styled.div`
   width: 80%;
   height: auto;
