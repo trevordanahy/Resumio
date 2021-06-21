@@ -4,7 +4,7 @@ import {Droppable} from 'react-beautiful-dnd'
 import ResumioSection from './ResumioSection'
 
 function SectionList({currentDraft}) {
-  console.log(currentDraft)
+  console.log(currentDraft['resume'])
   return (
     <Droppable droppableId='inputForm'>
       {(provided, snapshot) => (
