@@ -13,7 +13,6 @@ function ProjectsI({sectionData, registrationStr}) {
   return (
     <>
       {sectionData.map((project,index)=> {
-        console.log(project)
         return(
           <SectionFieldset key={project.name}>
             <SectionLegend>{project.name}</SectionLegend>

@@ -5,7 +5,7 @@ import { ResumioLabel,
   SectionFieldset, 
   SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function ProfilesI({profiles, parent, registrationIndex}) {
+function ProfilesI({profiles, registrationIndex}) {
   const {register} = useFormContext()
 
   return (
