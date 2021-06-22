@@ -1,14 +1,13 @@
 import React from 'react'
-import {StyledSectionList} from '../../../style/ResumioApp/InputApp/SectionStyles'
+import {StyledList} from '../../../style/ResumioApp/InputApp/SectionStyles'
 import {Droppable} from 'react-beautiful-dnd'
 import ResumioSection from './ResumioSection'
 
 function SectionList({currentDraft}) {
-  console.log(currentDraft['resume'])
   return (
     <Droppable droppableId='inputForm'>
       {(provided, snapshot) => (
-        <StyledSectionList 
+        <StyledList 
           ref={provided.innerRef} 
           {...provided.droppableProps}
           style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
@@ -25,7 +24,7 @@ function SectionList({currentDraft}) {
               )
             })}
             {provided.placeholder}
-        </StyledSectionList>
+        </StyledList>
       )}
     </Droppable>
   )

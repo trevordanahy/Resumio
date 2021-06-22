@@ -1,11 +1,13 @@
 import React from 'react'
 import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
-import { InputForm, 
-  NewDraftBttn, 
-  DraftTitle} from '../../../style/ResumioApp/InputApp/InputAppStyles'
 import SectionList from './SectionList'
 import { useForm, FormProvider } from 'react-hook-form'
 import { DragDropContext,  } from "react-beautiful-dnd"
+import { 
+  InputForm, 
+  NewDraftBttn, 
+  DraftTitle
+  } from '../../../style/ResumioApp/InputApp/InputAppStyles'
 
 
 export default function InputApp({currentDraft, setCurrentDraft}) {
@@ -24,14 +26,11 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
       return;
     }
 
-    console.log(currentDraft.resume)
-
     const reorderedResume = reorderArray(
         currentDraft.resume, 
         result.source.index, 
         result.destination.index)
     
-    console.log(reorderedResume)
     setCurrentDraft({...currentDraft, resume:reorderedResume})
   }
 
@@ -51,11 +50,6 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
               <SectionList currentDraft={currentDraft} />
             </DragDropContext>
             <button type='submit'>Submit</button>
-            <button onClick={()=> setCurrentDraft(
-              {...currentDraft, resume:[currentDraft['resume'][0]]})
-            }>
-              Test
-            </button>
           </InputForm>
         </FormProvider>
       </AppSection>
