@@ -8,11 +8,14 @@ import { ResumioLabel,
 function ContactI({contact, parent, parentIndex, registrationStr}) {
   const {register} = useFormContext()
 
+  /* some sections are repeatable and need a parent index to format
+  properly on submit. This allows the component to be used 
+  in repeated and non-repeated sections */
   function makeRegString (parentIndex){
     if (parentIndex || parentIndex === 0){
-      return (registrationStr + `${parentIndex}.contact` )
+      return (registrationStr + `${parentIndex}.contact.` )
     } else {
-      return (registrationStr + 'contact')
+      return (registrationStr + 'contact.')
     }
   }
 
@@ -23,25 +26,25 @@ function ContactI({contact, parent, parentIndex, registrationStr}) {
       <SectionLegend>Contact</SectionLegend>
       <ResumioLabel htmlFor="firstName">First Name</ResumioLabel>
       <ResumioInput 
-        {...register(regString + '.firstName')} 
+        {...register(regString + 'firstName')} 
         name="firstName" 
         defaultValue={contact["firstName"]}
       />
       <ResumioLabel htmlFor="lastName">Last Name</ResumioLabel>
       <ResumioInput 
-        {...register(regString + '.lastName')} 
+        {...register(regString + 'lastName')} 
         name="lastName" 
         defaultValue={contact["lastName"]}
       />
       <ResumioLabel htmlFor="phone">Phone</ResumioLabel>
       <ResumioInput 
-        {...register(regString + '.phone')} 
+        {...register(regString + 'phone')} 
         name="phone" 
         defaultValue={contact["phone"]}
       />
       <ResumioLabel htmlFor="email">Email</ResumioLabel>
       <ResumioInput 
-        {...register(regString + '.email')} 
+        {...register(regString + 'email')} 
         name="email" 
         defaultValue={contact["email"]}
       />

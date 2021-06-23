@@ -12,7 +12,7 @@ import {
 
 export default function InputApp({currentDraft, setCurrentDraft}) {
   const formMethods = useForm()
-  const onSubmit = data => console.log(data)
+  const onSubmit = () => console.log(currentDraft)
 
   function reorderArray(array, startIndex, endIndex){
     const newArray = Array.from(array)

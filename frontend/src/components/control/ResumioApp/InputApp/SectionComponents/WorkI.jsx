@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import LocationI from './LocationI'
 import RepeatableItems from './RepeatableItems'
 import {ResumioLabel, 
         ResumioInput,
@@ -9,6 +10,7 @@ import {ResumioLabel,
 
 function WorkI({sectionData, registrationStr}) {
   const {register} = useFormContext()
+  
   return (
   <>
     {sectionData.map((job,index) => {
@@ -20,6 +22,11 @@ function WorkI({sectionData, registrationStr}) {
             {...register(registrationStr + `${index}.name`)} 
             name="name" 
             defaultValue={job["name"]}
+          />
+          <LocationI 
+            location={job.location} 
+            parentIndex={index} 
+            registrationStr={registrationStr}
           />
           <ResumioLabel htmlFor="position">Position</ResumioLabel>
           <ResumioInput 
