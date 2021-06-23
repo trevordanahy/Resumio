@@ -30,7 +30,6 @@ export default function ResumioApp() {
   }
 
   if(loading){
-    console.log('loading')
     return (
       <LoadingPanel
         method={'get'}
