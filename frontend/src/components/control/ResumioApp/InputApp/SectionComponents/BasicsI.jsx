@@ -4,7 +4,8 @@ import LocationI from './LocationI'
 import ProfilesI from './ProfilesI'
 import { ResumioInput, 
   ResumioLabel, 
-  ResumioTextArea } from '../../../../style/ResumioApp/InputApp/SectionStyles'
+  ResumioTextArea,
+  SectionFieldset } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 import { useFormContext } from 'react-hook-form'
 
 function BasicsI({sectionData, registrationStr}) {
@@ -13,7 +14,7 @@ function BasicsI({sectionData, registrationStr}) {
   const location = sectionData["location"]
 
   return (
-    <>
+    <SectionFieldset>
       <ContactI 
         contact={contact} 
         registrationStr={registrationStr}
@@ -22,35 +23,37 @@ function BasicsI({sectionData, registrationStr}) {
         location={location} 
         registrationStr={registrationStr}
       />
-      <ResumioLabel htmlFor="jobTitle">Job Title</ResumioLabel>
-      <ResumioInput 
-        {...register(registrationStr + 'jobTitle')} 
-        name="jobTitle"  
-        defaultValue={sectionData["jobTitle"]}
-      />
-      <ResumioLabel htmlFor="summary">About</ResumioLabel>
-      <ResumioTextArea 
-        {...register(registrationStr + 'summary')}
-        rows='5' 
-        name="summary" 
-        defaultValue={sectionData["summary"]}
-      />
-      <ResumioLabel htmlFor="url">Personal Website</ResumioLabel>
-      <ResumioInput 
-        {...register(registrationStr + 'url')} 
-        name="url" 
-        defaultValue={sectionData["url"]}
-      />
-      <ResumioLabel htmlFor="img">Personal Image</ResumioLabel>
-      <ResumioInput 
-        {...register(registrationStr + 'img')} 
-        name="img" defaultValue={sectionData["img"]}
-      />
+      <SectionFieldset>
+        <ResumioLabel htmlFor="jobTitle">Job Title</ResumioLabel>
+        <ResumioInput 
+          {...register(registrationStr + 'jobTitle')} 
+          name="jobTitle"  
+          defaultValue={sectionData["jobTitle"]}
+        />
+        <ResumioLabel htmlFor="summary">About</ResumioLabel>
+        <ResumioTextArea 
+          {...register(registrationStr + 'summary')}
+          rows='5' 
+          name="summary" 
+          defaultValue={sectionData["summary"]}
+        />
+        <ResumioLabel htmlFor="url">Personal Website</ResumioLabel>
+        <ResumioInput 
+          {...register(registrationStr + 'url')} 
+          name="url" 
+          defaultValue={sectionData["url"]}
+        />
+        <ResumioLabel htmlFor="img">Personal Image</ResumioLabel>
+        <ResumioInput 
+          {...register(registrationStr + 'img')} 
+          name="img" defaultValue={sectionData["img"]}
+        />
+      </SectionFieldset>
       <ProfilesI 
         profiles={sectionData['profiles']} 
         registrationStr={registrationStr}
       />
-    </>
+    </SectionFieldset>
   )
 }
 

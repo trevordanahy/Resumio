@@ -30,12 +30,7 @@ export const InputForm = styled.form`
   align-items: center;
 `
 
-export const SectionList = styled.ul`
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-`
+
 
 
 
