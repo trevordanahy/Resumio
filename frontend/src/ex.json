@@ -1,0 +1,36 @@
+{
+  "title": "Aerospace Draft",
+  "resume": [
+    {
+      "basics": {
+        "contact": {
+          "firstName": "Carl",
+          "lastName": "Gauss",
+          "email": "thebest@stats.com",
+          "phone": "303-867-5309"
+        },
+        "jobTitle": "Mathmatician",
+        "img": "https://imgur.com/gallery/bE9Zp8D",
+        "url": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss",
+        "summary": "A mathmatician with strong statistical skills looking for acuary jobs",
+        "location": {
+          "address": "123 fake street",
+          "addressLine2": "Suite #35",
+          "postalCode": "12345",
+          "city": "Bangor",
+          "countryCode": "US",
+          "region": "Maine"
+        },
+        "profiles": [
+          {
+            "network": "twitter",
+            "username": "bttz",
+            "url": "www.twitter.com"
+          }
+        ]
+      }
+    }
+  ],
+  "created": "2019-12-01",
+  "modified": "2021-01-01"
+}
