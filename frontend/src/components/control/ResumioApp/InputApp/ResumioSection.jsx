@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import DisplayController from './DisplayController'
+import SectionController from './SectionController'
 import { Draggable } from "react-beautiful-dnd"
 import {
   SectionContainer,
@@ -11,7 +11,7 @@ import {
   } from '../../../style/ResumioApp/InputApp/SectionStyles'
 
 function ResumioSection({sectionType, section, resumeIndex}) {
-  const sectionData = section[sectionType]
+  const [sectionData, setSectionData] = useState(section[sectionType])
   const [showSection, setShowSection] = useState(false)
 
   const capitalize = (word) => {
@@ -22,6 +22,7 @@ function ResumioSection({sectionType, section, resumeIndex}) {
   function displaySectionToggle(){
     setShowSection(!showSection)
   }
+
 
   return (
     <Draggable draggableId={sectionType} index={resumeIndex}>
@@ -36,9 +37,10 @@ function ResumioSection({sectionType, section, resumeIndex}) {
               <Title>{capitalize(sectionType)}</Title>
               <Chevron>=</Chevron>
             </TitleBar>
-            <DisplayController 
+            <SectionController 
               sectionType={sectionType} 
-              sectionData={sectionData} 
+              sectionData={sectionData}
+              setSectionData={setSectionData} 
               resumeIndex={resumeIndex}
               showSection={showSection} 
             />
