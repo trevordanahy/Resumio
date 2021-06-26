@@ -176,6 +176,8 @@ export function addSection(sectionName) {
       return blankSections.references
     case 'projects':
       return blankSections.projects
+    default:
+      return null
   }
 }
 
