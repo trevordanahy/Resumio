@@ -1,9 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { set } from 'react-hook-form'
 import {addSection} from './new_sections'
 
 function SectionFastener({currentDraft, setCurrentDraft}) {
-  console.log(currentDraft)
+  const [error, setError] = useState('')
+
+  function duplicateCheck(sectionName){
+    /*reason for Object.keys(section)[0] resume is array of obj, 
+    each object has 1 key with section name*/
+    const currentSections = currentDraft.resume.map((section) => {
+      return Object.keys(section)[0]
+    })
+    if (currentSections.includes(sectionName)){
+      return true
+    }
+    return false
+  }
+
+
   function appendSection (sectionName){
+    const isDuplicate = duplicateCheck(sectionName)
+    if(isDuplicate){
+      setError('You cannot add a duplicate section. This section already exists')
+      return
+    }
     const updatedDraft = [...currentDraft.resume, addSection(sectionName)]
     setCurrentDraft({...currentDraft, resume: updatedDraft})
   }
@@ -20,6 +40,7 @@ function SectionFastener({currentDraft, setCurrentDraft}) {
       <button onClick={() => appendSection('languages')}>+ Languages</button>
       <button onClick={() => appendSection('references')}>+ References</button>
       <button onClick={() => appendSection('projects')}>+ Projects</button>
+      <div>{error}</div>
     </div>
   )
 }
