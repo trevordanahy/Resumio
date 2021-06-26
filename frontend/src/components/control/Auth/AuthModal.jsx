@@ -1,6 +1,11 @@
 import React, {useReducer, useRef} from 'react'
-import { Background, Modal, 
-  FormSelect, FormBttn,Form } from '../../style/AuthStyles/ModalStyles'
+import { 
+  Background, 
+  TallModal, 
+  FormSelect, 
+  FormBttn,
+  TallForm 
+  } from '../../style/ModalStyles'
 import AuthForm from './AuthForm'
 import authFormReducer from './authForm-reducer'
 
@@ -27,15 +32,15 @@ function AuthModal({isOpen, setIsOpen}) {
 
   return (
     <Background onClick={closeModal} ref={backgroundRef} >
-      <Modal>
+      <TallModal>
         <FormSelect>
           <FormBttn onClick={() => formDispatch({type: 'LOGIN', error: ''})}>Login</FormBttn>
           <FormBttn onClick={() => formDispatch({type: 'REGISTER', error: ''})}>Register</FormBttn>
         </FormSelect>
-        <Form>
+        <TallForm>
           <AuthForm form={form} formDispatch={formDispatch} />
-        </Form>
-      </Modal>
+        </TallForm>
+      </TallModal>
     </Background>
   )
 }

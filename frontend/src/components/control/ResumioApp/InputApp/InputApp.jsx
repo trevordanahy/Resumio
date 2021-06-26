@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import SectionList from './SectionList'
-import {addSection, newDraft, } from './NewSections/new_sections'
 import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
 import { useForm, FormProvider } from 'react-hook-form'
 import { DragDropContext,  } from "react-beautiful-dnd"
@@ -12,10 +11,8 @@ import {
   } from '../../../style/ResumioApp/InputApp/InputAppStyles'
 
 
-export default function InputApp({currentDraft, setCurrentDraft, setDrafts}) {
+export default function InputApp({currentDraft, setCurrentDraft, drafts, setDrafts}) {
   const [editTitle, setEditTitle] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-
   const formMethods = useForm()
 
 
@@ -48,7 +45,6 @@ export default function InputApp({currentDraft, setCurrentDraft, setDrafts}) {
 
   return (
     <>
-      <NewDraftBttn onClick={() => setCurrentDraft(newDraft)}>+ New Draft</NewDraftBttn>
       <AppSection>
         <DraftTitle>
           {editTitle ? 

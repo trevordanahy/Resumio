@@ -146,7 +146,7 @@ export const blankSections = {
   }
 }
 
-export const newDraft = {
+export const newBlankDraft = {
   title: "",
   resume: [blankSections.basics],
   created: "2019-12-01",
