@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { set } from 'react-hook-form'
 import {addSection} from './new_sections'
 
 function SectionFastener({currentDraft, setCurrentDraft}) {
