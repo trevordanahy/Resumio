@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
 import SectionList from './SectionList'
+import SectionFastener from './NewSections/SectionFastener'
 import { AppSection } from '../../../style/ResumioApp/ResumioAppStyles'
 import { useForm, FormProvider } from 'react-hook-form'
 import { DragDropContext,  } from "react-beautiful-dnd"
 import { 
-  InputForm, 
-  NewDraftBttn, 
+  InputForm,  
   DraftTitle,
   DraftTitleInput
   } from '../../../style/ResumioApp/InputApp/InputAppStyles'
 
 
-export default function InputApp({currentDraft, setCurrentDraft, drafts, setDrafts}) {
+export default function InputApp({currentDraft, setCurrentDraft}) {
   const [editTitle, setEditTitle] = useState(false)
   const formMethods = useForm()
 
@@ -46,6 +46,10 @@ export default function InputApp({currentDraft, setCurrentDraft, drafts, setDraf
   return (
     <>
       <AppSection>
+        <SectionFastener 
+          currentDraft={currentDraft} 
+          setCurrentDraft={setCurrentDraft} 
+        />
         <DraftTitle>
           {editTitle ? 
             <DraftTitleInput placeholder={currentDraft.title}/> 
