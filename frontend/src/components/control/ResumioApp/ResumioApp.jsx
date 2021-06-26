@@ -48,8 +48,15 @@ export default function ResumioApp() {
         <>
           <Route path="/app/input">
             <>
-              <DraftList drafts={drafts} setCurrentDraft={setCurrentDraft} />
-              <InputApp currentDraft={currentDraft} setCurrentDraft={setCurrentDraft} />
+              <DraftList 
+              drafts={drafts} 
+              setCurrentDraft={setCurrentDraft} 
+              setDrafts={setDrafts} 
+              />
+              <InputApp 
+              currentDraft={currentDraft} 
+              setCurrentDraft={setCurrentDraft} 
+              />
             </>  
           </Route>
           <Route path="/app/output">

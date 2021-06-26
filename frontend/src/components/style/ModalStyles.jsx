@@ -13,10 +13,29 @@ export const Background = styled.div`
     z-index: 2;
 `
 
-export const Modal = styled.div`
+export const ModalTitle = styled.h2`
+  font-size: 2em;
+`
+
+export const TallModal = styled.div`
   max-height: auto;
   max-width: 50%;
   min-width: 200px;
+  position: relative;
+`
+export const DraftInput = styled.input`
+  border: 0px 0px 2px 0px;
+  border-color: black;
+  
+`
+
+export const WideModal = styled.div`
+  max-height: auto;
+  min-height: 15%;
+  max-width: 60%;
+  min-width: 280px;
+  background: ${props => props.theme.lightShade};
+  color: ${props => props.theme.darkShade};
   position: relative;
 `
 
@@ -34,7 +53,7 @@ export const FormBttn = styled.button`
   border-style: solid;
   `
 
-export const Form = styled.div`
+export const TallForm = styled.div`
   padding: 0px 20px 20px 20px;
   color: black;
   display: flex;
@@ -45,4 +64,13 @@ export const Form = styled.div`
   border-radius: 0px 0px 20px 20px;
   border: black;
   border-style: solid;
+`
+export const WideForm = styled.div`
+  padding: 0px 20px 20px 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.lightShade};
 `
