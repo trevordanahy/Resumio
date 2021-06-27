@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useFormContext } from 'react-hook-form'
 import {
         SectionFieldset,
@@ -8,11 +8,18 @@ import {
 
 function RepeatableItems({repeatable, title, parentIndex, registrationStr}) {
   const {register} = useFormContext()
+  const [repeatableArray, setRepeatableArray] = useState(repeatable)
+
+  function addRepeatable(e){
+    e.preventDefault()
+    const newRepeatableArray = [...repeatableArray, '']
+    setRepeatableArray(newRepeatableArray)
+  }
 
   return (
     <SectionFieldset>
       <SubSectionTitle>{title}</SubSectionTitle>
-      {repeatable.map((item, index) => {
+      {repeatableArray.map((item, index) => {
         return (
           <ResumioTextArea key={`${title}_${index}`}
             rows='2'
@@ -22,6 +29,7 @@ function RepeatableItems({repeatable, title, parentIndex, registrationStr}) {
           />
         )
       })}
+      <button onClick={addRepeatable}>+</button>
     </SectionFieldset>
   )
 }
