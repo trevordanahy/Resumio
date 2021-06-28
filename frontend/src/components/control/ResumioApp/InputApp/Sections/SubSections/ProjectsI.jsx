@@ -64,7 +64,7 @@ function ProjectsI({subSectionObj, index, registrationStr}) {
       />
       <ResumioLabel htmlFor="url">Project URL</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.url`)} 
+        {...register(registrationStr + `${index}.url`, {shouldUnregister: true})} 
         name="url" 
         defaultValue={subSectionObj["url"]} 
       />

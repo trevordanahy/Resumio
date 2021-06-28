@@ -24,6 +24,7 @@ function SectionController({sectionType, sectionData, setSectionData, resumeInde
           subSectionType={sectionType} 
           sectionData={sectionData} 
           resumeIndex={resumeIndex}
+          registrationStr={registrationStr}
         />
       </SectionContent>
     )
