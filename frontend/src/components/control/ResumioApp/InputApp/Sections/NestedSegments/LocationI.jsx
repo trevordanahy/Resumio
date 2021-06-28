@@ -3,9 +3,9 @@ import { useFormContext } from 'react-hook-form'
 import { ResumioLabel, 
   ResumioInput,
   SectionFieldset, 
-  SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
+  SectionLegend} from '../../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function LocationI({location, parent, parentIndex, registrationStr}) {
+function LocationI({location, parentIndex, registrationStr}) {
   const {register} = useFormContext()
 
   /* some sections are repeatable and need a parent index to format

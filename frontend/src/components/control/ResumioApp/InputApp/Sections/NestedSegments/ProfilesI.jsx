@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form'
 import { ResumioLabel, 
   ResumioInput,
   SectionFieldset, 
-  SectionLegend} from '../../../../style/ResumioApp/InputApp/SectionStyles'
+  SectionLegend} from '../../../../../style/ResumioApp/InputApp/SectionStyles'
 
 function ProfilesI({profiles, registrationStr}) {
   const {register} = useFormContext()

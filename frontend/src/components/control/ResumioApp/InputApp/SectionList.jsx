@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyledList} from '../../../style/ResumioApp/InputApp/SectionStyles'
 import {Droppable} from 'react-beautiful-dnd'
-import ResumioSection from './ResumioSection'
+import SectionFixture from './Sections/SectionFixture'
 
 function SectionList({currentDraft}) {
   return (
@@ -15,7 +15,7 @@ function SectionList({currentDraft}) {
             {currentDraft.resume.map((section, index) => {
               const sectionType = Object.keys(section)[0]
               return (
-                <ResumioSection 
+                <SectionFixture 
                   key={sectionType}
                   sectionType={sectionType} 
                   section={section} 

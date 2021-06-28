@@ -1,7 +1,7 @@
 import React from 'react'
-import ContactI from './ContactI'
-import LocationI from './LocationI'
-import ProfilesI from './ProfilesI'
+import ContactI from './NestedSegments/ContactI'
+import LocationI from './NestedSegments/LocationI'
+import ProfilesI from './NestedSegments/ProfilesI'
 import { ResumioInput, 
   ResumioLabel, 
   ResumioTextArea,
@@ -10,17 +10,14 @@ import { useFormContext } from 'react-hook-form'
 
 function BasicsI({sectionData, registrationStr}) {
   const {register} = useFormContext()
-  const contact = sectionData["contact"]
-  const location = sectionData["location"]
-
   return (
     <SectionFieldset>
       <ContactI 
-        contact={contact} 
+        contact={sectionData["contact"]} 
         registrationStr={registrationStr}
       />
       <LocationI 
-        location={location} 
+        location={sectionData["location"]} 
         registrationStr={registrationStr}
       />
       <SectionFieldset>

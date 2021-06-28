@@ -8,9 +8,9 @@ import {
   ContentContainer,
   Chevron,
   TitleBar
-  } from '../../../style/ResumioApp/InputApp/SectionStyles'
+  } from '../../../../style/ResumioApp/InputApp/SectionStyles'
 
-function ResumioSection({sectionType, section, resumeIndex}) {
+function SectionFixture({sectionType, section, resumeIndex}) {
   const [sectionData, setSectionData] = useState(section[sectionType])
   const [showSection, setShowSection] = useState(false)
 
@@ -51,4 +51,4 @@ function ResumioSection({sectionType, section, resumeIndex}) {
   )
 }
 
-export default ResumioSection
+export default SectionFixture
