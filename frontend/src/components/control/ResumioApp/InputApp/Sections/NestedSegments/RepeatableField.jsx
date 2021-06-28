@@ -4,7 +4,7 @@ import {
         SectionFieldset,
         ResumioTextArea,
         SubSectionTitle
-        } from '../../../../style/ResumioApp/InputApp/SectionStyles'
+        } from '../../../../../style/ResumioApp/InputApp/SectionStyles'
 
 function RepeatableItems({repeatable, title, parentIndex, registrationStr}) {
   const {register} = useFormContext()
@@ -23,7 +23,8 @@ function RepeatableItems({repeatable, title, parentIndex, registrationStr}) {
         return (
           <ResumioTextArea key={`${title}_${index}`}
             rows='2'
-            {...register(registrationStr +`${parentIndex}.${title}.${index}`)} 
+            {...register(registrationStr +`${parentIndex}.${title}.${index}`,
+                        {shouldUnregister: true})} 
             name={`${title}.${index}`} 
             defaultValue={item} 
           />
