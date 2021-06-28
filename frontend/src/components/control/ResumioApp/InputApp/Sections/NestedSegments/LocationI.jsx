@@ -26,37 +26,37 @@ function LocationI({location, parentIndex, registrationStr}) {
       <SectionLegend>Location</SectionLegend>
       <ResumioLabel htmlFor="address">Address</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'address')} 
+        {...register(regString + 'address', {shouldUnregister: true})} 
         name="address" 
         defaultValue={location["address"]}
       />
       <ResumioLabel htmlFor="addressLine2">Address Line 2</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'addressLine2')} 
+        {...register(regString + 'addressLine2', {shouldUnregister: true})} 
         name="addressLine2" 
         defaultValue={location["addressLine2"]}
       />
       <ResumioLabel htmlFor="city">City</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'city')} 
+        {...register(regString + 'city', {shouldUnregister: true})} 
         name="city" 
         defaultValue={location["city"]}
       />
       <ResumioLabel htmlFor="region">Region(State)</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'region')} 
+        {...register(regString + 'region', {shouldUnregister: true})} 
         name="region" 
         defaultValue={location["region"]}
       />
       <ResumioLabel htmlFor="postalCode">Postal Code</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'postalCode')} 
+        {...register(regString + 'postalCode', {shouldUnregister: true})} 
         name="postalCode" 
         defaultValue={location["postalCode"]}
       />
       <ResumioLabel htmlFor="countryCode">Country Code</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'countryCode')} 
+        {...register(regString + 'countryCode', {shouldUnregister: true})} 
         name="countryCode" 
         defaultValue={location["countryCode"]}
       />

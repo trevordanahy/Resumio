@@ -12,13 +12,13 @@ function SkillsI({subSectionObj, index, registrationStr}) {
     <>
       <ResumioLabel htmlFor="name">Skill Name</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.name`)} 
+        {...register(registrationStr + `${index}.name`, {shouldUnregister: true})} 
         name="name" 
         defaultValue={subSectionObj["name"]} 
       />
       <ResumioLabel htmlFor="level">Mastery Level</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.level`)} 
+        {...register(registrationStr + `${index}.level`, {shouldUnregister: true})} 
         name="level" 
         defaultValue={subSectionObj["title"]} 
       />

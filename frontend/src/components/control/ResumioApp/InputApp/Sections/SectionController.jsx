@@ -8,16 +8,18 @@ function SectionController({sectionType, sectionData, setSectionData, resumeInde
   const registrationStr = `resume.${resumeIndex}.${sectionType}.`
   //all the sections have repeatable instances except basics
   const isRepeatable = (sectionType !== 'basics')
-  
-  function addInstance(type){
-    const [newSectionArray] = [...sectionData, blankSections[type][type]]
+
+  function addInstance(e){
+    e.preventDefault()
+    const newSubSection = blankSections[sectionType][sectionType][0]
+    const newSectionArray = [...sectionData, newSubSection]
     setSectionData(newSectionArray) 
   }
   
   if (isRepeatable){
     return(
       <SectionContent showSection={showSection}>
-        <button onClick={()=> addInstance(sectionType)}>Add Instance</button>
+        <button onClick={addInstance}>Add Instance</button>
         <RepeatableSection 
           subSectionType={sectionType} 
           sectionData={sectionData} 

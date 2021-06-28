@@ -16,7 +16,7 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
   const formMethods = useForm()
 
 
-  const onSubmit = () => console.log(currentDraft)
+  const onSubmit = (data) => console.log(data)
 
   function reorderArray(array, startIndex, endIndex){
     const newArray = Array.from(array)
@@ -60,7 +60,7 @@ export default function InputApp({currentDraft, setCurrentDraft}) {
           onClick={() => setEditTitle(!editTitle)}>{editTitle ? 'Save': 'Edit'}
         </button>
         <FormProvider {...formMethods}>
-          <InputForm onSubmit={formMethods.handleSubmit(onSubmit)}>
+          <InputForm key={currentDraft} onSubmit={formMethods.handleSubmit(onSubmit)}>
             <DragDropContext onDragEnd={onDragEnd}>
               <SectionList currentDraft={currentDraft} />
             </DragDropContext>

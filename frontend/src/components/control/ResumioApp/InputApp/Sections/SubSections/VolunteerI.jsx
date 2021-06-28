@@ -15,40 +15,40 @@ function VolunteerI({subSectionObj, index, registrationStr}) {
       <SubSectionTitle>{subSectionObj.organization}</SubSectionTitle>
       <ResumioLabel htmlFor="organization">Organization</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.organization`)} 
+        {...register(registrationStr + `${index}.organization`, {shouldUnregister: true})} 
         name="organization" 
         defaultValue={subSectionObj["organization"]}
       />
       <ResumioLabel htmlFor="url">Org Website</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.url`)} 
+        {...register(registrationStr + `${index}.url`, {shouldUnregister: true})} 
         name="url" 
         defaultValue={subSectionObj["url"]} 
       />
       <ResumioLabel htmlFor="position">Position</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.position`)} 
+        {...register(registrationStr + `${index}.position`, {shouldUnregister: true})} 
         name="position" 
         defaultValue={subSectionObj["position"]} 
       />
       <ResumioLabel htmlFor="startDate">Start Date</ResumioLabel>
       <ResumioInput 
         type='date'
-        {...register(registrationStr + `${index}.startDate`)} 
+        {...register(registrationStr + `${index}.startDate`, {shouldUnregister: true})} 
         name="startDate" 
         defaultValue={subSectionObj["startDate"]} 
       />
       <ResumioLabel htmlFor="endDate">End Date</ResumioLabel>
       <ResumioInput 
         type='date'
-        {...register(registrationStr + `${index}.endDate`)} 
+        {...register(registrationStr + `${index}.endDate`, {shouldUnregister: true})} 
         name="endDate" 
         defaultValue={subSectionObj["endDate"]} 
       />
       <ResumioLabel htmlFor="summary">Job Description</ResumioLabel>
       <ResumioTextArea 
         rows='3'
-        {...register(registrationStr + `${index}.summary`)} 
+        {...register(registrationStr + `${index}.summary`, {shouldUnregister: true})} 
         name="summary" 
         defaultValue={subSectionObj["summary"]} 
       />

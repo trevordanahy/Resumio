@@ -18,13 +18,13 @@ function ReferencesI({subSectionObj, index, registrationStr}) {
       />
       <ResumioLabel htmlFor="relationship">Relationship</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.relationship`)} 
+        {...register(registrationStr + `${index}.relationship`, {shouldUnregister: true})} 
         name="relationship" 
         defaultValue={subSectionObj["relationship"]} 
       />
       <ResumioLabel htmlFor="reference">Reference</ResumioLabel>
       <ResumioTextArea 
-        {...register(registrationStr + `${index}.reference`)}
+        {...register(registrationStr + `${index}.reference`, {shouldUnregister: true})}
         rows='3' 
         name="reference" 
         defaultValue={subSectionObj["reference"]}

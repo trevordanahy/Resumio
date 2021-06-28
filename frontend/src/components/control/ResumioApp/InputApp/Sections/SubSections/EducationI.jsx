@@ -14,45 +14,45 @@ function EducationI({subSectionObj, index, registrationStr}) {
       <SubSectionTitle>{subSectionObj.institution}</SubSectionTitle>
       <ResumioLabel htmlFor="institution">Institution</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.institution`)} 
+        {...register(registrationStr + `${index}.institution`, {shouldUnregister: true})} 
         name="institution" 
         defaultValue={subSectionObj["institution"]} 
       />
       <ResumioLabel htmlFor="url">Institution URL</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.url`)} 
+        {...register(registrationStr + `${index}.url`, {shouldUnregister: true})} 
         name="url" 
         defaultValue={subSectionObj["url"]} 
       />
       <ResumioLabel htmlFor="area">Area of Study</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.area`)} 
+        {...register(registrationStr + `${index}.area`, {shouldUnregister: true})} 
         name="area" 
         defaultValue={subSectionObj["area"]} 
       />
       <ResumioLabel htmlFor="institution">Institution</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.institution`)} 
+        {...register(registrationStr + `${index}.institution`, {shouldUnregister: true})} 
         name="institution" 
         defaultValue={subSectionObj["institution"]} 
       />
       <ResumioLabel htmlFor="studyType">Degree or Program</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.studyType`)} 
+        {...register(registrationStr + `${index}.studyType`, {shouldUnregister: true})} 
         name="studyType" 
         defaultValue={subSectionObj["studyType"]} 
       />
       <ResumioLabel htmlFor="startDate">Start Date</ResumioLabel>
       <ResumioInput 
         type='date'
-        {...register(registrationStr + `${index}.startDate`)} 
+        {...register(registrationStr + `${index}.startDate`, {shouldUnregister: true}) } 
         name="startDate" 
         defaultValue={subSectionObj["startDate"]} 
       />
       <ResumioLabel htmlFor="endDate">End Date</ResumioLabel>
       <ResumioInput 
         type='date'
-        {...register(registrationStr + `${index}.endDate`)} 
+        {...register(registrationStr + `${index}.endDate`, {shouldUnregister: true})} 
         name="endDate" 
         defaultValue={subSectionObj["endDate"]} 
       />

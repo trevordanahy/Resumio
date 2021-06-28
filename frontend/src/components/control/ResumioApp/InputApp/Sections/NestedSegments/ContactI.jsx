@@ -26,25 +26,25 @@ function ContactI({contact, parentIndex, registrationStr}) {
       <SectionLegend>Contact</SectionLegend>
       <ResumioLabel htmlFor="firstName">First Name</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'firstName')} 
+        {...register(regString + 'firstName', {shouldUnregister: true})} 
         name="firstName" 
         defaultValue={contact["firstName"]}
       />
       <ResumioLabel htmlFor="lastName">Last Name</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'lastName')} 
+        {...register(regString + 'lastName', {shouldUnregister: true})} 
         name="lastName" 
         defaultValue={contact["lastName"]}
       />
       <ResumioLabel htmlFor="phone">Phone</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'phone')} 
+        {...register(regString + 'phone', {shouldUnregister: true})} 
         name="phone" 
         defaultValue={contact["phone"]}
       />
       <ResumioLabel htmlFor="email">Email</ResumioLabel>
       <ResumioInput 
-        {...register(regString + 'email')} 
+        {...register(regString + 'email', {shouldUnregister: true})} 
         name="email" 
         defaultValue={contact["email"]}
       />

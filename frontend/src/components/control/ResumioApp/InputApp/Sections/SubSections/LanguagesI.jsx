@@ -10,13 +10,13 @@ function LanguagesI({subSectionObj, index, registrationStr}) {
     <>
       <ResumioLabel htmlFor="language">Language</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.language`)} 
+        {...register(registrationStr + `${index}.language`, {shouldUnregister: true})} 
         name="language" 
         defaultValue={subSectionObj["language"]} 
       />
       <ResumioLabel htmlFor="fluency">Fluency</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr + `${index}.fluency`)} 
+        {...register(registrationStr + `${index}.fluency`, {shouldUnregister: true})} 
         name="fluency" 
         defaultValue={subSectionObj["fluency"]} 
       />

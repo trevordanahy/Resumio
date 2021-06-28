@@ -13,19 +13,19 @@ function PublicationsI({subSectionObj, index,registrationStr}) {
       <SectionLegend>{subSectionObj.name}</SectionLegend>
       <ResumioLabel htmlFor="name">Publication Title</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr +`${index}.name`)} 
+        {...register(registrationStr +`${index}.name`, {shouldUnregister: true})} 
         name="name" 
         defaultValue={subSectionObj["name"]}
       />
       <ResumioLabel htmlFor="name">Publisher</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr +`${index}.publisher`)} 
+        {...register(registrationStr +`${index}.publisher`, {shouldUnregister: true})} 
         name="publisher" 
         defaultValue={subSectionObj["publisher"]}
       />
       <ResumioLabel htmlFor="releaseDate">Publication Date</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr +`${index}.releaseDate`)}
+        {...register(registrationStr +`${index}.releaseDate`, {shouldUnregister: true})}
         type='date' 
         name="releaseDate" 
         defaultValue={subSectionObj["releaseDate"]}
@@ -33,13 +33,13 @@ function PublicationsI({subSectionObj, index,registrationStr}) {
       <ResumioLabel htmlFor="summary">Synopsis</ResumioLabel>
       <ResumioTextArea 
       rows='4'
-      {...register(registrationStr +`${index}.summary`)} 
+      {...register(registrationStr +`${index}.summary`, {shouldUnregister: true})} 
       name="summary" 
       defaultValue={subSectionObj["summary"]} 
       />
       <ResumioLabel htmlFor="url">URL</ResumioLabel>
       <ResumioInput 
-        {...register(registrationStr +`${index}.url`)}
+        {...register(registrationStr +`${index}.url`, {shouldUnregister: true})}
         name="url" 
         defaultValue={subSectionObj["url"]}
       />
